@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "maxwell-bursons-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "The blog of Maxwell Burson",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Maxwell Burson <maxwellburson@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/maxburs/blog/issues"
   },
   "dependencies": {
     "gatsby": "^2.1.17",
@@ -38,15 +38,12 @@
   "devDependencies": {
     "prettier": "^1.16.4"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
+  "homepage": "https://maxburson.com",
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/maxburson/blog.git"
   },
   "scripts": {
     "build": "gatsby build",
