@@ -1,7 +1,7 @@
 {
   "name": "maxwell-bursons-blog",
   "private": true,
-  "description": "The blog of Maxwell Burson",
+  "description": "Blog of Maxwell Burson",
   "version": "0.1.0",
   "author": "Maxwell Burson <maxwellburson@gmail.com>",
   "bugs": {
