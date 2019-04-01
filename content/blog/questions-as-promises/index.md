@@ -32,7 +32,7 @@ Promises also let us keep this business logic hidden inside of a component when 
 
 This could all be avoided by moving all this logic and state into a higher component, but, that defeats our original goal of isolation. On the other hand, if the qustion can be answered by a modal inside of the current class we should likely just do that.
 
-I've used this successfully technique in these situations:
+I've used this trick successfully in these situations:
 
 - The question was being asked a _lot_. We could just render a modal in the current context whenever we need to and be done with it, but creating a service to answer a frequent question saves a large amount of time.
 - The question could only be answered by other components. Other components need to be interacted with by the user to get the question answered or other components have state inside of them that we don't want to pass around.
