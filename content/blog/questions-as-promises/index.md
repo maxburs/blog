@@ -1,6 +1,6 @@
 ---
 title: Questions as Promises
-date: '2018-02-24'
+date: '2018-03-31'
 description: Promises and async code are awesome. If you're only using them for ajax you're missing out.
 tags: React, Javascript, Promise, async/await
 ---
