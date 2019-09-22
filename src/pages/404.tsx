@@ -4,7 +4,12 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-class NotFoundPage extends React.Component {
+interface Props {
+  data: any;
+  location: Location;
+}
+
+class NotFoundPage extends React.Component<Props> {
   render() {
     const { data } = this.props;
     const siteTitle = data.site.siteMetadata.title;

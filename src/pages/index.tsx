@@ -6,7 +6,12 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm } from '../utils/typography';
 
-class BlogIndex extends React.Component {
+interface Props {
+  data: any;
+  location: Location;
+}
+
+class BlogIndex extends React.Component<Props> {
   render() {
     const { data } = this.props;
     const siteTitle = data.site.siteMetadata.title;
@@ -19,7 +24,7 @@ class BlogIndex extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <Bio />
-        {posts.map(({ node }) => {
+        {posts.map(({ node }: any) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
             <div key={node.fields.slug}>

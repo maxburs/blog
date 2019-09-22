@@ -6,7 +6,16 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm, scale } from '../utils/typography';
 
-class BlogPostTemplate extends React.Component {
+interface Props {
+  data: any;
+  pageContext: {
+    previous: any;
+    next: any;
+  };
+  location: Location;
+}
+
+class BlogPostTemplate extends React.Component<Props> {
   render() {
     const post = this.props.data.markdownRemark;
     const siteTitle = this.props.data.site.siteMetadata.title;
