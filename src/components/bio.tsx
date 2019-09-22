@@ -31,8 +31,8 @@ function Bio() {
               }}
             />
             <p>
-              <strong>{author}</strong> writes about Web Developement and
-              Typescript
+              <strong>{author}</strong> writes about web developement and
+              TypeScript
             </p>
           </div>
         );
