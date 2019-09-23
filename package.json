@@ -1,8 +1,7 @@
 {
   "name": "maxwell-bursons-blog",
-  "private": true,
   "description": "Blog of Maxwell Burson",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Maxwell Burson <maxwellburson@gmail.com>",
   "bugs": {
     "url": "https://github.com/maxburs/blog/issues"
