@@ -2,7 +2,7 @@
 title: Questions as Promises
 date: '2018-03-31'
 description: Promises and async code are awesome. If you're only using them for ajax you're missing out.
-tags: React, Javascript, Promise, async/await
+tags: React, JavaScript, Promise, Async/Await
 ---
 
 Promises and async/await are awesome and should be used more often in the front end. I rarely see them getting used for anything besides ajax and that's a shame. I'll provide a short (contrived) example of a problem that can be simplified by using promises.
