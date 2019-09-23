@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Max's Dev Blog`,
     author: `Maxwell Burson`,
-    description: `Max talks about code`,
+    description: `Max writes about code`,
     siteUrl: `https://maxburson.com`,
     social: {
       twitter: `maxburs`,
