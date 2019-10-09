@@ -1,6 +1,6 @@
 ---
 title: Making the switch => object pattern work in TypeScript
-date: '2019-09-22'
+date: '2019-10-08'
 description: Where I come to terms with TypeScript not being perfect
 tags: TypeScript
 ---
