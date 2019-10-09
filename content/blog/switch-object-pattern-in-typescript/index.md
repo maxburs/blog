@@ -1,5 +1,5 @@
 ---
-title: Making the switch => object pattern work in TypeScript
+title: Making the switch => object Pattern Work in TypeScript
 date: '2019-10-08'
 description: Where I come to terms with TypeScript not being perfect
 tags: TypeScript, Generics
