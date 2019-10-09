@@ -7,7 +7,7 @@ tags: TypeScript, Generics
 
 ## Switch => Object is a great pattern
 
-I'm a huge fan of the JavaScript pattern where replaces a swith like this:
+I'm a huge fan of the JavaScript pattern where one replaces a switch:
 
 ```js
 function handle(event) {
