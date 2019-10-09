@@ -1,7 +1,7 @@
 ---
-title: Questions as Promises
+title: Cross Component Promises
 date: '2018-03-31'
-description: Promises and async code are awesome. If you're only using them for ajax you're missing out.
+description: Async cross component communication can be easily (ish) achived without breaking component data flow rules
 tags: React, JavaScript, Promise, Async/Await
 ---
 
