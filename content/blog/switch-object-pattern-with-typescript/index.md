@@ -5,7 +5,7 @@ description: Where I come to terms with TypeScript not being perfect
 tags: TypeScript, Generics
 ---
 
-## Switch => Object is a great pattern
+## The switch => object pattern is great
 
 I'm a huge fan of the JavaScript pattern where one replaces a switch:
 
