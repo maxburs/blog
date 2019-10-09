@@ -29,7 +29,7 @@ const eventHandlers = {
 };
 ```
 
-The second method really shines when we don't want to specify the kinds of event are handling in the same file.
+The second method really shines when we don't want to specify the kinds of events we are handling in the same file.
 
 ```js
 import familyEventHandlers from './familyEventHandlers';
@@ -74,7 +74,7 @@ function handle(event: FamilyEvent | GoblinEvent) {
 }
 ```
 
-But cant make sense of the second one:
+But can't make sense of the second one.
 
 ```ts
 const eventHandlers = {
@@ -113,7 +113,7 @@ No type errors! 🎊
 
 ... but with a catch.
 
-This works because the inteface is still generic when accessed. To keep this compiling, the mapped type generic as long as the event is generic.
+This works because the inteface is still generic when accessed. To keep this compiling, the object must preseve it's mapped typings as long as the event is generic.
 
 That is to say, the following produces a type error:
 
