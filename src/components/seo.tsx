@@ -1,6 +1,6 @@
-import React from 'react';
-import Helmet from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
+import React from "react";
+import Helmet from "react-helmet";
+import { StaticQuery, graphql } from "gatsby";
 
 interface Props {
   description?: string;
@@ -23,7 +23,7 @@ function SEO({
   return (
     <StaticQuery
       query={detailsQuery}
-      render={data => {
+      render={(data) => {
         const metaDescription =
           description || data.site.siteMetadata.description;
         return (
@@ -73,7 +73,7 @@ function SEO({
                       name: `keywords`,
                       content: keywords.join(`, `),
                     }
-                  : []
+                  : [],
               )
               .concat(meta)}
           />

@@ -42,7 +42,7 @@
     "@types/react-helmet": "^5.0.10",
     "@types/typography": "^0.16.3",
     "husky": "^3.0.5",
-    "prettier": "^1.16.4",
+    "prettier": "^2.2.1",
     "pretty-quick": "^1.11.1",
     "typescript": "^3.6.3"
   },
@@ -56,10 +56,9 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
+    "format": "prettier --write .",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "typecheck": "tsc --watch"
   },
   "husky": {

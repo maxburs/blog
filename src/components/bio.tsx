@@ -1,14 +1,14 @@
-import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
+import Image from "gatsby-image";
 
-import { rhythm } from '../utils/typography';
+import { rhythm } from "../utils/typography";
 
 function Bio() {
   return (
     <StaticQuery
       query={bioQuery}
-      render={data => {
+      render={(data) => {
         const { author } = data.site.siteMetadata;
         return (
           <div

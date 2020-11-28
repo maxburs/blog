@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import { rhythm, scale } from '../utils/typography';
+import React from "react";
+import { Link } from "gatsby";
+import { rhythm, scale } from "../utils/typography";
 
 interface Props {
   location: {
@@ -60,18 +60,18 @@ class Layout extends React.Component<Props> {
     return (
       <div
         style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
+          marginLeft: "auto",
+          marginRight: "auto",
           maxWidth: rhythm(24),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-          minHeight: '100%',
+          minHeight: "100%",
         }}
       >
         <header>{header}</header>
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()} •{' '}
-          <a href="https://www.github.com/maxburs">github</a> •{' '}
+          © {new Date().getFullYear()} •{" "}
+          <a href="https://www.github.com/maxburs">github</a> •{" "}
           <a href="https://www.twitter.com/maxburs">twitter</a>
         </footer>
       </div>
