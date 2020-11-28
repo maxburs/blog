@@ -1,6 +1,6 @@
 {
-  "timestamp": 1606541795101,
-  "hash": "03b5686dc63e6acf7908c1f67277a68f",
+  "timestamp": 1606546618696,
+  "hash": "1237dfc1c469508d6166040a65a0fb93",
   "assets": {
     "/switch-object-pattern-with-typescript/": {
       "/static/montserrat-latin-900-58cd789700850375b834e8b6776002eb.woff2": true,
@@ -12,16 +12,20 @@
       "/static/montserrat-latin-900-58cd789700850375b834e8b6776002eb.woff2": true,
       "/static/merriweather-latin-400-8276fdb72ae8f4714d4e6eba704cc39f.woff2": true,
       "/static/merriweather-latin-700-fa534be7ffa380e39a7f6e03bf9a5e03.woff2": true,
-      "/static/merriweather-latin-400italic-3a9be9ea9f7aa4af6de7307df21d9fc0.woff2": true
+      "/static/merriweather-latin-400italic-3a9be9ea9f7aa4af6de7307df21d9fc0.woff2": true,
+      "/static/merriweather-latin-900-7528fb70e8a4a82c7305e72ff43ac25f.woff2": true
     },
     "/dev-404-page/": {
       "/static/montserrat-latin-900-58cd789700850375b834e8b6776002eb.woff2": true,
       "/static/merriweather-latin-400-8276fdb72ae8f4714d4e6eba704cc39f.woff2": true,
-      "/static/merriweather-latin-900-7528fb70e8a4a82c7305e72ff43ac25f.woff2": true
+      "/static/merriweather-latin-900-7528fb70e8a4a82c7305e72ff43ac25f.woff2": true,
+      "/static/merriweather-latin-700-fa534be7ffa380e39a7f6e03bf9a5e03.woff2": true
     },
     "/404/": {
       "/static/merriweather-latin-400-8276fdb72ae8f4714d4e6eba704cc39f.woff2": true,
-      "/static/montserrat-latin-900-58cd789700850375b834e8b6776002eb.woff2": true
+      "/static/montserrat-latin-900-58cd789700850375b834e8b6776002eb.woff2": true,
+      "/static/merriweather-latin-700-fa534be7ffa380e39a7f6e03bf9a5e03.woff2": true,
+      "/static/merriweather-latin-900-7528fb70e8a4a82c7305e72ff43ac25f.woff2": true
     },
     "/": {
       "/static/merriweather-latin-700-fa534be7ffa380e39a7f6e03bf9a5e03.woff2": true,
@@ -31,7 +35,15 @@
     },
     "/404.html": {
       "/static/montserrat-latin-900-58cd789700850375b834e8b6776002eb.woff2": true,
-      "/static/merriweather-latin-400-8276fdb72ae8f4714d4e6eba704cc39f.woff2": true
+      "/static/merriweather-latin-400-8276fdb72ae8f4714d4e6eba704cc39f.woff2": true,
+      "/static/merriweather-latin-700-fa534be7ffa380e39a7f6e03bf9a5e03.woff2": true,
+      "/static/merriweather-latin-900-7528fb70e8a4a82c7305e72ff43ac25f.woff2": true
+    },
+    "/rtfm-more/": {
+      "/static/montserrat-latin-900-58cd789700850375b834e8b6776002eb.woff2": true,
+      "/static/merriweather-latin-700-fa534be7ffa380e39a7f6e03bf9a5e03.woff2": true,
+      "/static/merriweather-latin-400-8276fdb72ae8f4714d4e6eba704cc39f.woff2": true,
+      "/static/merriweather-latin-900-7528fb70e8a4a82c7305e72ff43ac25f.woff2": true
     }
   }
 }
