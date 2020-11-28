@@ -17,7 +17,7 @@
     "url": "git+https://github.com/maxburson/blog.git"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby-preload-fonts && gatsby build",
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --write .",
