@@ -6,12 +6,36 @@
   "bugs": {
     "url": "https://github.com/maxburs/blog/issues"
   },
+  "engines": {
+    "node": "12.*"
+  },
+  "homepage": "https://maxburson.com",
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxburson/blog.git"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "format": "prettier --write .",
+    "typecheck": "tsc --watch",
+    "preload-fonts": "gatsby-preload-fonts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "dependencies": {
     "gatsby": "^2.27.4",
     "gatsby-image": "^2.6.0",
     "gatsby-plugin-feed": "^2.8.0",
     "gatsby-plugin-manifest": "^2.7.0",
     "gatsby-plugin-offline": "^3.5.0",
+    "gatsby-plugin-preload-fonts": "^1.4.0",
     "gatsby-plugin-react-helmet": "^3.5.0",
     "gatsby-plugin-sharp": "^2.9.1",
     "gatsby-plugin-typescript": "^2.7.0",
@@ -43,25 +67,5 @@
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
     "typescript": "^4.1.2"
-  },
-  "homepage": "https://maxburson.com",
-  "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/maxburson/blog.git"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write .",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "typecheck": "tsc --watch"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   }
 }
