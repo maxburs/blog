@@ -1,6 +1,6 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
 interface Props {
   description?: string;
@@ -13,13 +13,13 @@ interface Props {
   title: string;
 }
 
-function SEO({
+const SEO: React.FC<Props> = ({
   description,
   lang = `en`,
   meta = [],
   keywords = [],
   title,
-}: Props) {
+}) => {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -81,7 +81,7 @@ function SEO({
       }}
     />
   );
-}
+};
 
 export default SEO;
 

@@ -1,6 +1,6 @@
 ---
 title: Cross Component Promises
-date: "2018-03-31"
+date: '2018-03-31'
 description: Async cross component communication can be easily (ish) achived without breaking component data flow rules
 tags: React, JavaScript, Promise, Async/Await
 ---
@@ -9,15 +9,15 @@ Promises and async/await are awesome and should be used more often in the front 
 
 ```jsx
 async function seriousBusinessLogic(pickAColor) {
-  const favorite = await pickAColor("Pick your favorite", [
-    "steelblue",
-    "darkgoldenrod",
-    "olivedrab",
+  const favorite = await pickAColor('Pick your favorite', [
+    'steelblue',
+    'darkgoldenrod',
+    'olivedrab',
   ]);
 
   const leastFavorite = await pickAColor(
-    "Please pick your least favorite of these colors",
-    ["aquamarine", "darksalmon", "rebeccapurple"],
+    'Please pick your least favorite of these colors',
+    ['aquamarine', 'darksalmon', 'rebeccapurple'],
   );
 
   alert(`You picked ${favorite}, and ${leastFavorite}`);

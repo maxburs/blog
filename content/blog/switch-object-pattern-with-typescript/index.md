@@ -1,6 +1,6 @@
 ---
 title: Making the switch => object Pattern Work in TypeScript
-date: "2019-10-08"
+date: '2019-10-08'
 description: Where I come to terms with TypeScript not being perfect
 tags: TypeScript, Generics
 ---
@@ -12,9 +12,9 @@ I'm a huge fan of the JavaScript pattern where one replaces a switch:
 ```js
 function handle(event) {
   switch (event.kind) {
-    case "goblins_are_coming":
+    case 'goblins_are_coming':
       repelMonsters(event);
-    case "family_is_coming":
+    case 'family_is_coming':
       stockFridge(event);
   }
 }
@@ -46,12 +46,12 @@ Assume this is written above the rest of the TypeScript examples:
 
 ```ts
 interface GoblinEvent {
-  kind: "goblins_are_coming";
+  kind: 'goblins_are_coming';
   smell: number;
 }
 
 interface FamilyEvent {
-  kind: "family_is_coming";
+  kind: 'family_is_coming';
   notice: number;
 }
 
@@ -66,9 +66,9 @@ TypeScript plays fine with the first JavaScript example.
 ```ts
 function handle(event: FamilyEvent | GoblinEvent) {
   switch (event.kind) {
-    case "goblins_are_coming":
+    case 'goblins_are_coming':
       repelMonsters(event);
-    case "family_is_coming":
+    case 'family_is_coming':
       stockFridge(event);
   }
 }
@@ -99,7 +99,7 @@ Argument of type 'OurEvent' is not assignable to parameter of type 'GoblinEvent 
 ## Here's the great (terrible?) hack to make it work
 
 ```ts
-function handle<P extends OurEvent, T extends P["kind"]>(
+function handle<P extends OurEvent, T extends P['kind']>(
   payload: P,
   stuff: { [K in T]: (arg0: P) => void },
 ) {
@@ -128,7 +128,7 @@ function handleWrapper<P extends OurEvent>(payload: P) {
 Check this out:
 
 ```ts
-function handle<P extends OurEvent, T extends P["kind"]>(
+function handle<P extends OurEvent, T extends P['kind']>(
   payload: P,
   stuff: { [K in T]: (arg0: P) => void },
 ) {
