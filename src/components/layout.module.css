@@ -1,11 +1,15 @@
 html,
-body {
-  overflow: hidden;
-}
-
-html,
 body,
 :global(#___gatsby),
 :global(#gatsby-focus-wrapper) {
   height: 100%;
+}
+html,
+body,
+:global(#___gatsby) {
+  overflow: hidden;
+}
+
+:global(#gatsby-focus-wrapper) {
+  overflow: auto;
 }
