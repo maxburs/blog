@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { rhythm, scale } from '../utils/typography';
 
-import './layout.module.css';
+import './reset.css';
 
 const rootPath = `${__PATH_PREFIX__}/`;
 
