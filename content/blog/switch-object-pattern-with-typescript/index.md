@@ -1,8 +1,29 @@
 ---
 title: Making the switch => object Pattern Work in TypeScript
 date: '2019-10-08'
+updated: '2020-11-29'
 description: Where I come to terms with TypeScript not being perfect
 tags: TypeScript, Generics
+---
+
+## Update 2020-11-29
+
+[@michaeljota](https://github.com/michaeljota) [pointed out](https://github.com/maxburs/blog/issues/1) that this pattern works without issue if we give the map a generic type explicitly like this.
+
+```ts
+type EventHandlers<
+  T extends OurEvent = OurEvent,
+  P extends T['kind'] = T['kind']
+> = {
+  [K in P]: Function;
+};
+
+const eventHandlers: EventHandlers = {
+  goblins_are_coming: repelMonsters,
+  family_is_coming: stockFridge,
+};
+```
+
 ---
 
 ## The switch => object pattern is great
@@ -113,7 +134,7 @@ No type errors! 🎊
 
 ... but with a catch.
 
-This works because the inteface is still generic when accessed. To keep this compiling, the object must preseve it's mapped typings as long as the event is generic.
+This works because the interface is still generic when accessed. To keep this compiling, the object must preserve it's mapped typings as long as the event is generic.
 
 That is to say, the following produces a type error:
 
