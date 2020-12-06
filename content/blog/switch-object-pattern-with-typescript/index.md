@@ -6,26 +6,6 @@ description: Where I come to terms with TypeScript not being perfect
 tags: TypeScript, Generics
 ---
 
-## Update 2020-11-29
-
-[@michaeljota](https://github.com/michaeljota) [pointed out](https://github.com/maxburs/blog/issues/1) that this pattern works without issue if we give the map a generic type explicitly like this.
-
-```ts
-type EventHandlers<
-  T extends OurEvent = OurEvent,
-  P extends T['kind'] = T['kind']
-> = {
-  [K in P]: Function;
-};
-
-const eventHandlers: EventHandlers = {
-  goblins_are_coming: repelMonsters,
-  family_is_coming: stockFridge,
-};
-```
-
----
-
 ## The switch => object pattern is great
 
 I'm a huge fan of the JavaScript pattern where one replaces a switch:
