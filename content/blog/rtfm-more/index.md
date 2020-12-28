@@ -7,7 +7,7 @@ tags: Programming, Learning
 
 TLDR: Read Stack Overflow less, and your language or library’s docs more.
 
-### Reasons to RTFM
+## Reasons to RTFM
 
 - Less likely to be outdated
 - Less likely to be incorrect
@@ -19,7 +19,7 @@ It's easy to get in a habit of immediately looking up ready-made solutions; neve
 
 Stack Overflow is still great, but it’s not the first resource I would reach for.
 
-### More great reading material
+## More great reading material
 
 - Source code: Will make you a better developer
 - Patch notes: May have better information on the latest features than the docs
