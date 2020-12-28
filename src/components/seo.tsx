@@ -13,9 +13,9 @@ interface Props {
   title: string;
 }
 
-const SEO: React.FC<Props> = ({
+export const SEO: React.FC<Props> = ({
   description,
-  lang = `en`,
+  lang = 'en',
   meta = [],
   keywords = [],
   title,
@@ -79,8 +79,6 @@ const SEO: React.FC<Props> = ({
     }}
   />
 );
-
-export default SEO;
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {

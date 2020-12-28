@@ -2,37 +2,24 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 
-import { rhythm } from '../utils/typography';
+import style from './bio.module.css';
 
-const Bio: React.FC = () => (
+export const Bio: React.FC = () => (
   <StaticQuery
     query={bioQuery}
     render={(data) => {
       const { author } = data.site.siteMetadata;
       return (
-        <div
-          style={{
-            display: 'flex',
-            marginBottom: rhythm(2.5),
-          }}
-        >
+        <div className={style.bio}>
           <Image
             fixed={data.avatar.childImageSharp.fixed}
             alt={author}
-            style={{
-              marginRight: rhythm(1 / 2),
-              marginBottom: 0,
-              minWidth: 50,
-              borderRadius: '100%',
-            }}
-            imgStyle={{
-              borderRadius: '50%',
-            }}
+            className={style.avatar}
             loading="eager"
             fadeIn={false}
           />
           <p>
-            <strong>{author}</strong> writes about web developement and
+            <strong>{author}</strong> writes about web development and
             TypeScript.
           </p>
         </div>
@@ -60,5 +47,3 @@ const bioQuery = graphql`
     }
   }
 `;
-
-export default Bio;
