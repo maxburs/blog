@@ -114,14 +114,11 @@ pre[class*='language-'] {
   margin-left: -16px;
   margin-right: -16px;
   border-radius: 0;
+  overflow-y: auto;
 }
 
 code[class*='language-'],
 pre[class*='language-'] {
   font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier,
     monospace;
-}
-
-code[class*='language-'] {
-  overflow-y: auto;
 }
