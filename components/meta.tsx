@@ -5,7 +5,6 @@ export const Meta: React.FC = () => (
     <Head>
       <link rel="manifest" href="/favicon/site.webmanifest" />
       <link rel="icon" type="image/png" href="/favicon/favicon.ico" />
-      <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <meta name="color-scheme" content="dark light" />
       <link
