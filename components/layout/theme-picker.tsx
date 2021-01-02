@@ -6,16 +6,9 @@ import style from './theme-picker.module.css';
 export const ThemePicker: React.FC = () => {
   const [theme, setTheme] = useState<ThemeState | 'disabled'>('disabled');
   useEffect(() => {
-    console.log('wwwtttfff');
     try {
-      console.log('theme3');
-      setTheme((localStorage.getItem('theme') as ThemeState) ?? 'auto');
-      console.log(
-        'theme2',
-        (localStorage.getItem('theme') as ThemeState) ?? 'auto',
-      );
-    } catch (e) {
-      console.log('theme2');
+      setTheme((document.body.dataset.theme as ThemeState) ?? 'auto');
+    } catch {
       setTheme('auto');
     }
   }, []);
