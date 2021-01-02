@@ -1,0 +1,19 @@
+.bio {
+  display: flex;
+}
+
+/* Image container */
+.bio > *:first-child {
+  flex: 0 0 auto;
+  width: 50px;
+  height: 50px;
+}
+
+.bio p {
+  margin-top: 0;
+  margin-left: 16px;
+}
+
+.avatar {
+  border-radius: 50%;
+}

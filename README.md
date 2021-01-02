@@ -1,4 +1,4 @@
-Forked off the [gatsby starter blog](https://github.com/gatsbyjs/gatsby-starter-blog)
+Forked off the [next.js typescript blog starter](https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript)
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/maxburs/blog)
 
