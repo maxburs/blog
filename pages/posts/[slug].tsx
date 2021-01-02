@@ -19,24 +19,26 @@ const Post = ({ post }: Props) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+  if (router.isFallback) {
+    return (
+      <Layout>
+        <h1>Loading...</h1>
+      </Layout>
+    );
+  }
+
   return (
     <Layout>
-      {router.isFallback ? (
-        <h1>Loading…</h1>
-      ) : (
-        <>
-          <Head key="keywords">
-            <meta name="keywords" content={post.tags} />
-          </Head>
-          <article>
-            <h1 className={style.title}>{post.title}</h1>
-            <p className={style.date}>
-              <DateFormatter dateString={post.date} />
-            </p>
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
-          </article>
-        </>
-      )}
+      <Head key="keywords">
+        <meta name="keywords" content={post.tags} />
+      </Head>
+      <article>
+        <h1 className={style.title}>{post.title}</h1>
+        <p className={style.date}>
+          <DateFormatter dateString={post.date} />
+        </p>
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      </article>
     </Layout>
   );
 };

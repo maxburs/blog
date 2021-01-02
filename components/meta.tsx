@@ -15,6 +15,12 @@ export const Meta: React.FC = () => (
       />
       <link
         rel="preload"
+        href="/fonts/merriweather/merriweather-latin-700.woff2"
+        as="font"
+        crossOrigin=""
+      />
+      <link
+        rel="preload"
         href="/fonts/montserrat/montserrat-latin-700.woff2"
         as="font"
         crossOrigin=""

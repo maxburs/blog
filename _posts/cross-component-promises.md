@@ -24,7 +24,19 @@ async function seriousBusinessLogic(pickAColor) {
 }
 ```
 
-Working example with React: https://codepen.io/genuine_smiles/pen/rbNOWO
+<style>
+  .codepen {
+    margin-bottom: 1.5em;
+    margin-left: -16px;
+    margin-right: -16px;
+    width: calc(100% + 32px);
+  }
+</style>
+
+<iframe class="codepen" height="265"  scrolling="no" title="Promises are Great blog post example" src="https://codepen.io/genuine_smiles/embed/rbNOWO?height=265&theme-id=dark&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/genuine_smiles/pen/rbNOWO'>Promises are Great blog post example</a> by Maxwell Burson
+  (<a href='https://codepen.io/genuine_smiles'>@genuine_smiles</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 The most immediate benefit is not splitting the above code into multiple parts. We can keep the dispatching logic and the resulting effects in the same block as they should be; as well as chaining multiple requests together easily and naturally.
 

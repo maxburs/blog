@@ -12,7 +12,11 @@ const title = (
   </Link>
 );
 
-export const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+  fullWidth?: boolean;
+}
+
+export const Layout: React.FC<LayoutProps> = ({ children, fullWidth }) => {
   const router = useRouter();
 
   return (
@@ -26,7 +30,7 @@ export const Layout: React.FC = ({ children }) => {
             <h3 style={{ marginTop: 0 }}>{title} </h3>
           )}
         </header>
-        <main>{children}</main>
+        <main data-full-width={fullWidth ? true : undefined}>{children}</main>
         <footer>
           © {new Date().getFullYear()} •{' '}
           <a href="https://www.github.com/maxburs">github</a> •{' '}
