@@ -12,10 +12,9 @@ import style from './style.module.css';
 
 interface Props {
   post: IPost;
-  morePosts: IPost[];
 }
 
-const Post = ({ post, morePosts }: Props) => {
+const Post = ({ post }: Props) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -26,6 +25,9 @@ const Post = ({ post, morePosts }: Props) => {
         <h1>Loading…</h1>
       ) : (
         <>
+          <Head key="keywords">
+            <meta name="keywords" content={post.tags} />
+          </Head>
           <article>
             <h1 className={style.title}>{post.title}</h1>
             <p className={style.date}>
@@ -50,10 +52,8 @@ export async function getStaticProps({ params }: Params) {
     'title',
     'date',
     'slug',
-    'author',
     'content',
-    'ogImage',
-    'coverImage',
+    'tags',
   ]);
   const content = await markdownToHtml(post.content);
 
@@ -64,9 +64,7 @@ export async function getStaticPaths() {
   const posts = getAllPosts(['slug']);
 
   return {
-    paths: posts.map((posts) => ({
-      params: { slug: posts.slug },
-    })),
+    paths: posts.map((posts) => ({ params: { slug: posts.slug } })),
     fallback: false,
   };
 }

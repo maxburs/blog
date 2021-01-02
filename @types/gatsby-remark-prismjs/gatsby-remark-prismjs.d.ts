@@ -1,6 +1,6 @@
-import type { Node } from 'unist';
-
 declare module 'gatsby-remark-prismjs' {
+  import type { Node } from 'unist';
+
   interface Options {
     classPrefix?: string;
     inlineCodeMarker?: null | string;
@@ -17,6 +17,6 @@ declare module 'gatsby-remark-prismjs' {
     escapeEntities: Record<string, string>;
   }
 
-  declare function transform(ast: { markdownAST: Node }, options: Options);
+  declare function transform(ast: { markdownAST: Node }, options?: Options);
   export default transform;
 }
