@@ -2,10 +2,10 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 
-import { Layout } from '../../components/layout';
+import { Layout } from '../../components/layout/layout';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import { markdownToHtml } from '../../lib/markdownToHtml';
-import { IPost } from '../../types/post';
+import { IPost } from '../../types';
 import { DateFormatter } from '../../components/date-formatter';
 
 import style from './style.module.css';

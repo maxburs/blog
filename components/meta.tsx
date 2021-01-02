@@ -7,6 +7,7 @@ export const Meta: React.FC = () => (
       <link rel="icon" type="image/png" href="/favicon/favicon.ico" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <meta name="color-scheme" content="dark light" />
       <link
         rel="preload"
         href="/fonts/merriweather/merriweather-latin-400.woff2"

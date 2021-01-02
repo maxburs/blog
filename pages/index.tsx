@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
 import { Bio } from '../components/bio';
-import { Layout } from '../components/layout';
+import { Layout } from '../components/layout/layout';
 import { getAllPosts } from '../lib/api';
-import { IPost } from '../types/post';
+import { IPost } from '../types';
 
 import style from './index.module.css';
 

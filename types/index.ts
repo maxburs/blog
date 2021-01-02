@@ -6,3 +6,5 @@ export interface IPost {
   tags: string;
   content: string;
 }
+
+export type ThemeState = 'light' | 'dark' | 'auto';

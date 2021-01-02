@@ -2,9 +2,10 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-import { Meta } from './meta';
+import { Meta } from '../meta';
 
 import styles from './layout.module.css';
+import { ThemePicker } from './theme-picker';
 
 const title = (
   <Link href="/">
@@ -32,9 +33,12 @@ export const Layout: React.FC<LayoutProps> = ({ children, fullWidth }) => {
         </header>
         <main data-full-width={fullWidth ? true : undefined}>{children}</main>
         <footer>
-          © {new Date().getFullYear()} •{' '}
-          <a href="https://www.github.com/maxburs">github</a> •{' '}
-          <a href="https://www.twitter.com/maxburs">twitter</a>
+          <span>
+            © {new Date().getFullYear()} /{' '}
+            <a href="https://www.github.com/maxburs">github</a> /{' '}
+            <a href="https://www.twitter.com/maxburs">twitter</a>
+          </span>
+          <ThemePicker />
         </footer>
       </div>
     </>

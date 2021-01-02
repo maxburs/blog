@@ -6,6 +6,12 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <body>
+          <script
+            dangerouslySetInnerHTML={{
+              __html:
+                "document.body.dataset.theme = localStorage.getItem('theme') || 'auto'; console.log('me first'); ",
+            }}
+          />
           <Main />
           <NextScript />
         </body>
