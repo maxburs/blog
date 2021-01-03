@@ -60,6 +60,6 @@ Out of the box Tailwind CSS is used for styling. Tailwind had been getting a lot
 
 - 👍 Both JavaScript and TypeScript variations
 - 👎 Doesn't have anything to match Gatsby's rich plugin ecosystem
-- 👍 The excellent [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) function makes it easy to use existing Node knowledge to add data non-javascript stuff built time
+- 👍 [getStaticProps](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation) makes it easy to use existing Node knowledge to add data non-javascript stuff built time
 - 👍 [Tailwind CSS](https://www.tailwindapp.com/) is used for styles out of the box
 - 👎 I got a build error when starting the example for the first time
