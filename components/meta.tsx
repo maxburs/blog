@@ -26,7 +26,11 @@ export const Meta: React.FC = () => (
         crossOrigin=""
       />
       <title>Max's Blog</title>
-      <meta name="description" content="Max writes about code" />
+      <meta name="author" content="Maxwell Burson" />
+      <meta
+        name="description"
+        content="Max Burson's blog where he mostly writes about code."
+      />
     </Head>
     <Head key="keywords">
       <meta
