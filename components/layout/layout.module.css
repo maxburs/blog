@@ -11,7 +11,7 @@
 
 .layout > footer {
   margin-top: auto;
-  padding-top: 32px;
+  padding-top: 48px;
   display: flex;
   flex-direction: row;
 }
