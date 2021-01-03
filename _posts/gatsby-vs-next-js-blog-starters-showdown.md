@@ -15,7 +15,7 @@ Gatsby's more barebones approach to styling and layout match my taste better tha
 
 [https://gatsby-starter-blog-demo.netlify.app/](https://gatsby-starter-blog-demo.netlify.app/)
 
-It was real easy to get started with Gatsby. The starter's in a state were I felt comfortable deploying it as-is, and the plugins make it real easy to add functionality. I used the [gatsby-remark-prismjs](https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/?=prismjs) plugin to add syntax highlighting to my code blocks.
+It was real easy to get started with Gatsby. I felt comfortable deploying the starter mostly it as-is, and the plugins made it real easy to add functionality. I used the [gatsby-remark-prismjs](https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/?=prismjs) plugin to add syntax highlighting to my code blocks.
 
 The starter wasn't 100% to my liking though. To understand everything in the starter you need to know GraphQL, which I don't. I opted to ignore the query under each page and pray they didn't break.
 
