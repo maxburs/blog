@@ -34,9 +34,7 @@ const Post = ({ post }: Props) => {
       </Head>
       <article>
         <h1 className={style.title}>{post.title}</h1>
-        <p className={style.date}>
-          <DateFormatter dateString={post.date} />
-        </p>
+        <DateFormatter className={style.date} dateString={post.date} />
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </article>
     </Layout>

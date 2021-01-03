@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { Bio } from '../components/bio';
+import { DateFormatter } from '../components/date-formatter';
 import { Layout } from '../components/layout/layout';
 import { getAllPosts } from '../lib/api';
 import { IPost } from '../types';
@@ -22,7 +23,9 @@ const Index: React.FC<Props> = ({ posts }) => (
               <a>{post.title}</a>
             </Link>
           </h3>
-          <small>{post.date}</small>
+          <small>
+            <DateFormatter dateString={post.date}>{post.date}</DateFormatter>
+          </small>
           <p>{post.excerpt}</p>
         </div>
       );

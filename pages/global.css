@@ -67,7 +67,7 @@ body {
 
 body {
   font-family: Merriweather, Georgia, serif;
-  line-height: 1.6;
+  line-height: 1.7;
 
   --black: #2c2c2c;
   --white: #f5f5f5;
@@ -78,7 +78,7 @@ body {
 @media (prefers-color-scheme: dark) {
   body:not([data-theme='light']) {
     --black: #e3e3e3;
-    --white: #141414;
+    --white: #202020;
     --gray300: #4a4a4a;
     --link-color: #4b9cf5;
   }
@@ -86,7 +86,7 @@ body {
 
 body[data-theme='dark'] {
   --black: #e3e3e3;
-  --white: #141414;
+  --white: #202020;
   --gray300: #4a4a4a;
   --link-color: #4b9cf5;
 }
