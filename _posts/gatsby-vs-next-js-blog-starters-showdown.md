@@ -36,7 +36,7 @@ Error: PostCSS plugin postcss-nested requires PostCSS 8.
 
 The starter looks to be make for a blog with multiple contributors, meaning I had to delete a bunch of stuff, and it is missing and RSS feed. (Although it does have have [a link to a RSS feed in its head](https://github.com/vercel/next.js/blob/85bd4a9ccba6def894f01df3fa9ef2f4e2e05d99/examples/blog-starter-typescript/components/meta.tsx#L34) 🤔)
 
-Adding code block syntax highlighting was a real hassle. Maybe I just don't know what to search for? I Eventually I ended up looking through [t](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-prismjs)he source code for [gatsby-remark-prismjs](https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/?=prismjs), and didn't see anything Gatsby specific. In fact, it's not Gatsby-not-specific enough that [I was able to use it with Next.js](https://github.com/maxburs/blog/blob/ae76c5e772325c513db474e93ef78251377a0825/lib/markdownToHtml.ts)! The only price I appear to be paying is a new warning on `yarn install`.
+Adding code block syntax highlighting was a real hassle. Maybe I just don't know what to search for? I Eventually I ended up looking through the source code for [gatsby-remark-prismjs](https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/?=prismjs), and didn't see anything Gatsby specific. In fact, it's not Gatsby-not-specific enough that [I was able to use it with Next.js](https://github.com/maxburs/blog/blob/ae76c5e772325c513db474e93ef78251377a0825/lib/markdownToHtml.ts)! The only price I appear to be paying is a new warning on `yarn install`.
 
 ```
 warning " > gatsby-remark-prismjs@3.10.0" has unmet peer dependency "gatsby@^2.0.0".
