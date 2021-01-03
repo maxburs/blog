@@ -16,7 +16,7 @@ export const ThemePicker: React.FC = () => {
   return (
     <>
       <label className={style.label} htmlFor="theme-selector">
-        Theme
+        theme
       </label>
       <select
         className={style.dropdown}
@@ -32,9 +32,9 @@ export const ThemePicker: React.FC = () => {
           } catch {}
         }}
       >
-        <option value="auto">Auto</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
+        <option value="auto">auto</option>
+        <option value="light">light</option>
+        <option value="dark">dark</option>
       </select>
     </>
   );

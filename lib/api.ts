@@ -14,10 +14,12 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
+  console.log('data', data);
+
   const items: Record<string, string> = {};
 
   // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
+  for (const field of fields) {
     if (field === 'slug') {
       items[field] = realSlug;
     }
@@ -28,7 +30,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     if (data[field]) {
       items[field] = data[field];
     }
-  });
+  }
 
   return items;
 }

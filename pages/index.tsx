@@ -15,21 +15,19 @@ interface Props {
 const Index: React.FC<Props> = ({ posts }) => (
   <Layout>
     <Bio />
-    {posts.map((post) => {
-      return (
-        <div key={post.slug} className={style.post}>
-          <h3>
-            <Link href={`/posts/${post.slug}`}>
-              <a>{post.title}</a>
-            </Link>
-          </h3>
-          <small>
-            <DateFormatter dateString={post.date}>{post.date}</DateFormatter>
-          </small>
-          <p>{post.excerpt}</p>
-        </div>
-      );
-    })}
+    {posts.map((post) => (
+      <div key={post.slug} className={style.post}>
+        <h3>
+          <Link href={`/posts/${post.slug}`}>
+            <a>{post.title}</a>
+          </Link>
+        </h3>
+        <small>
+          <DateFormatter dateString={post.date}>{post.date}</DateFormatter>
+        </small>
+        <p>{post.excerpt}</p>
+      </div>
+    ))}
   </Layout>
 );
 

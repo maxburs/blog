@@ -16,3 +16,17 @@
   max-width: var(--page-width);
   display: block;
 }
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 48px 0 0 0;
+}
+
+.nav a {
+  display: block;
+  margin: 8px 0;
+}
