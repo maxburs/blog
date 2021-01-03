@@ -7,10 +7,6 @@ tags: Gatsby, Next.js, Blogging, React
 
 Yesterday I switched from using Gatsby to generate my blog to Next.js. I had forked [Gatsby's blog starter](https://github.com/gatsbyjs/gatsby-starter-blog), and just forked Next.js's [blog-starter-typescript](https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript) example. Here I'll narrate my experience with both of them, and pit them against each other in a blog-on-blog showdown!
 
-> Q: Who should use these?
-> <br/>
-> A: People who want to use React when customizing their blog.
-
 ## TLDR
 
 Gatsby's more barebones approach to styling and layout match my taste better than Next.js's more filled-in blog template. Gatsby's plugins make it easy to add functionality, and Next.js doesn't have anything comparable. I'd recommend Gatsby to people picking between the two, but I'm not reverting my switch to Next.js any time soon.
