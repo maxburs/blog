@@ -13,7 +13,7 @@ Yesterday I switched from using Gatsby to generate my blog to Next.js. I had for
 
 ## TLDR
 
-Gatsby's more barebones approach to styling and layout match my taste better than Next.js's more filled in blog template. Gatsby's plugins make it easy to add functionality, and Next.js doesn't have anything comparable. I'd recommend Gatsby to people picking between the two, but I'm not reverting my switch to Next.js any time soon.
+Gatsby's more barebones approach to styling and layout match my taste better than Next.js's more filled-in blog template. Gatsby's plugins make it easy to add functionality, and Next.js doesn't have anything comparable. I'd recommend Gatsby to people picking between the two, but I'm not reverting my switch to Next.js any time soon.
 
 ## Gatsby
 
