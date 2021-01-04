@@ -1,5 +1,7 @@
 import Head from 'next/head';
 
+import constants from '../constants.json';
+
 export const Meta: React.FC = () => (
   <>
     <Head>
@@ -25,12 +27,9 @@ export const Meta: React.FC = () => (
         as="font"
         crossOrigin=""
       />
-      <title>Max's Blog</title>
-      <meta name="author" content="Maxwell Burson" />
-      <meta
-        name="description"
-        content="Max Burson's blog where he mostly writes about code."
-      />
+      <title>{constants.title}</title>
+      <meta name="author" content={constants.author.name} />
+      <meta name="description" content={constants.description} />
     </Head>
     <Head key="keywords">
       <meta

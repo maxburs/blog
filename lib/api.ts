@@ -1,44 +1,26 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import { IPost } from '../types';
 
 const postsDirectory = join(process.cwd(), '_posts');
 
 export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+  return fs.readdirSync(postsDirectory).map((s) => s.replace(/\.md$/, ''));
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+export function getPostBySlug(slug: string): IPost {
+  const fullPath = join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
-  console.log('data', data);
-
-  const items: Record<string, string> = {};
-
-  // Ensure only the minimal needed data is exposed
-  for (const field of fields) {
-    if (field === 'slug') {
-      items[field] = realSlug;
-    }
-    if (field === 'content') {
-      items[field] = content;
-    }
-
-    if (data[field]) {
-      items[field] = data[field];
-    }
-  }
-
-  return items;
+  return { ...data, content, slug } as IPost;
 }
 
-export function getAllPosts(fields: string[] = []) {
+export function getAllPosts(): IPost[] {
   const slugs = getPostSlugs();
   const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
+    .map((slug) => getPostBySlug(slug))
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;

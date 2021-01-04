@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { Layout } from '../../components/layout/layout';
-import { getPostBySlug, getAllPosts } from '../../lib/api';
+import { getPostBySlug, getAllPosts, getPostSlugs } from '../../lib/api';
 import { markdownToHtml } from '../../lib/markdownToHtml';
 import { IPost } from '../../types';
 import { DateFormatter } from '../../components/date-formatter';
@@ -53,20 +53,10 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (
   if (!context.params) {
     return { notFound: true };
   }
-  const post = (getPostBySlug(context.params?.slug, [
-    'title',
-    'date',
-    'slug',
-    'content',
-    'tags',
-  ]) as unknown) as IPost;
+  const post = getPostBySlug(context.params.slug);
   const content = await markdownToHtml(post.content);
 
-  const allPosts = (getAllPosts([
-    'title',
-    'date',
-    'slug',
-  ]) as unknown) as IPost[];
+  const allPosts = getAllPosts();
   const index = allPosts.findIndex((p) => p.slug == post.slug);
   if (index === -1) {
     throw new Error();
@@ -74,14 +64,20 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (
   const lastPost = allPosts[index - 1] ?? null;
   const nextPost = allPosts[index + 1] ?? null;
 
-  return { props: { post: { ...post, content }, lastPost, nextPost } };
+  return {
+    props: {
+      post: { ...post, content },
+      lastPost: lastPost && { slug: lastPost.slug, title: lastPost.title },
+      nextPost: nextPost && { slug: nextPost.slug, title: nextPost.title },
+    },
+  };
 };
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
-  const posts = getAllPosts(['slug']);
+  const posts = getPostSlugs();
 
   return {
-    paths: posts.map((posts) => ({ params: { slug: posts.slug } })),
+    paths: posts.map((slug) => ({ params: { slug } })),
     fallback: false,
   };
 };

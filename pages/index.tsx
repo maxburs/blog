@@ -9,7 +9,7 @@ import { IPost } from '../types';
 import style from './index.module.css';
 
 interface Props {
-  posts: IPost[];
+  posts: Omit<IPost, 'content'>[];
 }
 
 const Index: React.FC<Props> = ({ posts }) => (
@@ -34,7 +34,10 @@ const Index: React.FC<Props> = ({ posts }) => (
 export default Index;
 
 export async function getStaticProps() {
-  const posts = getAllPosts(['title', 'date', 'slug', 'excerpt']);
+  const posts = getAllPosts().map((p) => {
+    const { content: _, ...rest } = p;
+    return rest;
+  });
 
   return { props: { posts } };
 }
