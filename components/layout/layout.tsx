@@ -37,7 +37,9 @@ export const Layout: React.FC<LayoutProps> = ({ children, fullWidth }) => {
             © {new Date().getFullYear()} /{' '}
             <a href="https://www.github.com/maxburs">github</a> /{' '}
             <a href="https://www.twitter.com/maxburs">twitter</a> /{' '}
-            <a href="/rss.xml">rss</a>
+            <a rel="alternate" type="application/rss+xml" href="/rss.xml">
+              rss
+            </a>
           </span>
           <ThemePicker />
         </footer>

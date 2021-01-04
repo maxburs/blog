@@ -48,11 +48,6 @@ async function generateFeeds() {
       throw err;
     }
   });
-  fs.writeFile(`${__dirname}/../public/json.json`, feed.json1(), (err) => {
-    if (err) {
-      throw err;
-    }
-  });
 }
 
 generateFeeds();

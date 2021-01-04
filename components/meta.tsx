@@ -7,7 +7,8 @@ export const Meta: React.FC = () => (
     <Head>
       <link rel="manifest" href="/favicon/site.webmanifest" />
       <link rel="icon" type="image/png" href="/favicon/favicon.ico" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+      <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
       <meta name="color-scheme" content="dark light" />
       <link
         rel="preload"
