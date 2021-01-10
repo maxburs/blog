@@ -3,7 +3,7 @@ import style from './bio.module.css';
 const author = 'Maxwell Burson';
 
 export const Bio: React.FC = () => (
-  <section className={style.bio}>
+  <div className={style.bio}>
     <img
       alt="Picture of the author"
       src="/me/50.jpg"
@@ -16,5 +16,5 @@ export const Bio: React.FC = () => (
     <p>
       <strong>{author}</strong> writes about web development and TypeScript.
     </p>
-  </section>
+  </div>
 );
