@@ -11,6 +11,7 @@ export const Bio: React.FC = () => (
       className={style.avatar}
       width={50}
       height={50}
+      sizes="50px"
     />
     <p>
       <strong>{author}</strong> writes about web development and TypeScript.
