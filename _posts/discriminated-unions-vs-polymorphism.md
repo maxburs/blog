@@ -1,5 +1,5 @@
 ---
-title: 'TypeScript: Picking between Discriminated Unions and Polymorphism'
+title: 'TypeScript: Discriminated Unions & Polymorphism'
 date: '2021-01-17'
 excerpt: Notes on picking between polymorphism and discriminated unions when writing typescript
 tags: typescript, discriminated unions, polymorphism, polymorphism, typescript interface
