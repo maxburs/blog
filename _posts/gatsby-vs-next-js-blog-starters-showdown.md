@@ -2,7 +2,7 @@
 title: 'Gatsby vs Next.js: Blog Starters Showdown ⚔️'
 date: '2021-01-02'
 excerpt: Yesterday I switched from using Gatsby to generate my blog to Next.js. ... Here I'll narrate my experience with both of them, and pit them against each other in a blog-on-blog showdown!
-tags: Gatsby, Next.js, Blogging, React
+tags: gatsby, next.js, nextjs, blogging, react
 ---
 
 Yesterday I switched from using Gatsby to generate my blog to Next.js. I had forked [Gatsby's blog starter](https://github.com/gatsbyjs/gatsby-starter-blog), and just forked Next.js's [blog-starter-typescript](https://github.com/vercel/next.js/tree/canary/examples/blog-starter-typescript) example. Here I'll narrate my experience with both of them, and pit them against each other in a blog-on-blog showdown!

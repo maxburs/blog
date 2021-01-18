@@ -2,7 +2,7 @@
 title: RTFM More
 date: '2020-11-07'
 excerpt: Read Stack Overflow less, and your language or library’s docs more
-tags: Programming, Learning
+tags: programming, learning
 ---
 
 TLDR: Read Stack Overflow less, and your language or library’s docs more.

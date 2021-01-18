@@ -21,10 +21,16 @@ const Post = ({ post, lastPost, nextPost }: Props) => (
     <Head key="keywords">
       <meta name="keywords" content={post.tags} />
     </Head>
+    <Head key="description">
+      <meta name="description" content={post.excerpt} />
+    </Head>
     <article>
       <h1 className={style.title}>{post.title}</h1>
       <DateFormatter className={style.date} dateString={post.date} />
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div
+        className={style.markdown}
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
     </article>
     <ul className={style.nav}>
       <li>

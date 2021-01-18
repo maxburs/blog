@@ -2,7 +2,7 @@
 title: Making the switch => object Pattern Work in TypeScript
 date: '2019-10-08'
 excerpt: Where I come to terms with TypeScript not being perfect
-tags: TypeScript, Generics
+tags: typescript, generics
 ---
 
 ## The switch => object pattern is great

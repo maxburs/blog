@@ -30,6 +30,8 @@ export const Meta: React.FC = () => (
       />
       <title>{constants.title}</title>
       <meta name="author" content={constants.author.name} />
+    </Head>
+    <Head key="description">
       <meta name="description" content={constants.description} />
     </Head>
     <Head key="keywords">
