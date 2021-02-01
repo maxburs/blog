@@ -1,5 +1,5 @@
 ---
-title: 'TypeScript discriminated unions: Problems and solutions'
+title: 'TypeScript Discriminated Unions: Problems and Solutions'
 date: '2021-01-31'
 excerpt: Solutions to problems with TypeScript's discriminated unions
 tags: typescript, discriminated unions, generics, optional chaining
