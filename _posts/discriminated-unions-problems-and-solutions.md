@@ -111,7 +111,7 @@ const data3 = { kind: 'circle' as const };
 
 ## Problem: Pulling a property off a union is verbose
 
-### Solution: Define more types to allow direct property access
+### Solution: Define more propery types to allow direct property access
 
 ```tsx
 type Result<T> = { kind: 'ok'; value: T } | { kind: 'err'; msg: string };
