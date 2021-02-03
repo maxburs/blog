@@ -13,7 +13,7 @@ const title = (
   </Link>
 );
 
-interface LayoutProps {
+export interface LayoutProps {
   fullWidth?: boolean;
 }
 
@@ -36,7 +36,6 @@ export const Layout: React.FC<LayoutProps> = ({ children, fullWidth }) => {
           <span>
             © {new Date().getFullYear()} /{' '}
             <a href="https://www.github.com/maxburs">github</a> /{' '}
-            <a href="https://www.twitter.com/maxburs">twitter</a> /{' '}
             <a rel="alternate" type="application/rss+xml" href="/rss.xml">
               rss
             </a>
