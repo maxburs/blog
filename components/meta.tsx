@@ -5,7 +5,6 @@ import constants from '../constants.json';
 export const Meta: React.FC = () => (
   <>
     <Head>
-      <link rel="manifest" href="/favicon/site.webmanifest" />
       <link rel="icon" type="image/png" href="/favicon/favicon.ico" />
       <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
       <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
