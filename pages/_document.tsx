@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
           <script
             dangerouslySetInnerHTML={{
               __html:
-                "document.body.dataset.theme = localStorage.getItem('theme') || 'auto';",
+                "document.documentElement.dataset.theme = localStorage.getItem('theme') || 'auto';",
             }}
           />
           <Main />

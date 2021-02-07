@@ -7,7 +7,9 @@ export const ThemePicker: React.FC = () => {
   const [theme, setTheme] = useState<ThemeState | 'disabled'>('disabled');
   useEffect(() => {
     try {
-      setTheme((document.body.dataset.theme as ThemeState) ?? 'auto');
+      setTheme(
+        (document.documentElement.dataset.theme as ThemeState) ?? 'auto',
+      );
     } catch {
       setTheme('auto');
     }
@@ -25,7 +27,7 @@ export const ThemePicker: React.FC = () => {
         value={theme === 'disabled' ? 'auto' : theme}
         onChange={(event) => {
           const value = event.target.value as ThemeState;
-          document.body.dataset.theme = value;
+          document.documentElement.dataset.theme = value;
           setTheme(value);
           try {
             localStorage.setItem('theme', value);
