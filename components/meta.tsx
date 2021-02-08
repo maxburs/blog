@@ -27,8 +27,10 @@ export const Meta: React.FC = () => (
         as="font"
         crossOrigin=""
       />
-      <title>{constants.title}</title>
       <meta name="author" content={constants.author.name} />
+    </Head>
+    <Head key="title">
+      <title>{constants.title}</title>
     </Head>
     <Head key="description">
       <meta name="description" content={constants.description} />

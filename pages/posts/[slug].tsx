@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
+import constants from '../../constants.json';
+
 import { Layout } from '../../components/layout/layout';
 import { getPostBySlug, getAllPosts, getPostSlugs } from '../../lib/api';
 import { markdownToHtml } from '../../lib/markdownToHtml';
@@ -18,6 +20,12 @@ interface Props {
 
 const Post = ({ post, lastPost, nextPost }: Props) => (
   <Layout>
+    <Head>
+      <link rel="canonical" href={`https://maxburson.com/posts/${post.slug}`} />
+    </Head>
+    <Head key="title">
+      <title>{`${constants.title} - ${post.title}`}</title>
+    </Head>
     <Head key="keywords">
       <meta name="keywords" content={post.tags} />
     </Head>
