@@ -7,6 +7,9 @@
   max-width: 64ch;
   padding: 32px 16px 16px 16px;
   box-sizing: border-box;
+  /* Prevents edge cases where context is wider than screen width from causing
+    left-right scrollbar */
+  overflow: hidden;
 }
 
 .layout > footer {

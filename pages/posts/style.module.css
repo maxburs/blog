@@ -16,6 +16,10 @@
   display: block;
 }
 
+.markdown > p {
+  overflow: auto;
+}
+
 .markdown img {
   max-width: calc(100% + 32px);
   margin: 0 -16px;
