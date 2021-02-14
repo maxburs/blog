@@ -9,6 +9,7 @@ export const Meta: React.FC = () => (
       <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
       <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
       <meta name="color-scheme" content="dark light" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link
         rel="preload"
         href="/fonts/merriweather/merriweather-latin-400.woff2"
