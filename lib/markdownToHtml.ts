@@ -4,7 +4,7 @@ import html from 'remark-html';
 
 export async function markdownToHtml(markdown: string) {
   const result = await remark()
-    .use(html)
+    .use(html, { sanitize: false })
     .use(() => (tree) => {
       remarkPrismjs({ markdownAST: tree });
     })
