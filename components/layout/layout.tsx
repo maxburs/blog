@@ -9,7 +9,7 @@ import { ThemePicker } from './theme-picker';
 
 const title = (
   <Link href="/">
-    <a className={styles.link}>Max's Blog</a>
+    <a className={styles.link}>Max's Blooooog</a>
   </Link>
 );
 
