@@ -7,7 +7,7 @@
     "url": "https://github.com/maxburs/blog/issues"
   },
   "engines": {
-    "node": "22"
+    "node": "20"
   },
   "homepage": "https://maxburson.com",
   "license": "MIT",
