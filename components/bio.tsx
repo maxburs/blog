@@ -14,7 +14,7 @@ export const Bio: React.FC = () => (
       sizes="50px"
     />
     <p>
-      <strong>{author}</strong> writes about web development and TypeScript.
+      <strong>{author}</strong> writes about web development and TypeScript
     </p>
   </div>
 );
