@@ -75,7 +75,7 @@ body {
 
 @mixin dark-theme {
   --black: color-mix(in oklch, var(--brand) 20%, white);
-  --white: color-mix(in oklch, var(--brand) 28.5%, black);
+  --white: oklch(0.26 0.01 var(--brand-hue));
   --link-color: oklch(0.75 0.15 var(--brand2-hue));
   --brand: oklch(0.81 0.2 var(--brand-hue));
   --brand2: oklch(1 1 var(--brand2-hue));
