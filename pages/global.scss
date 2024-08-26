@@ -93,7 +93,7 @@ body {
 
   background-color: var(--white);
   color: var(--black);
-  --grey-300: color-mix(in oklch, var(--white), var(--black) 80%);
+  --gray300: color-mix(in oklch, var(--white), var(--black) 80%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -151,4 +151,14 @@ code[class*='language-'],
 pre[class*='language-'] {
   font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier,
     monospace;
+}
+
+select {
+  border-color: var(--gray300);
+  color: var(--black);
+  background-color: var(--white);
+}
+
+:focus-visible {
+  outline-color: color-mix(in oklab, var(--link-color), var(--black) 30%);
 }
