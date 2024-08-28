@@ -162,3 +162,7 @@ select {
 :focus-visible {
   outline-color: color-mix(in oklab, var(--link-color), var(--black) 30%);
 }
+
+::selection {
+  background-color: color-mix(in oklab, var(--brand), var(--white) 30%);
+}
