@@ -10,7 +10,7 @@ import { markdownToHtml } from '../../lib/markdownToHtml';
 import { IPost } from '../../types';
 import { DateFormatter } from '../../components/date-formatter';
 
-import style from './style.module.scss';
+import style from './posts.module.scss';
 import 'prismjs/themes/prism-okaidia.css';
 
 interface Props {
