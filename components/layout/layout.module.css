@@ -1,18 +1,16 @@
-.layout {
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  max-width: 64ch;
-  padding: 32px 16px 16px 16px;
-  box-sizing: border-box;
-  /* Prevents edge cases where context is wider than screen width from causing
-    left-right scrollbar */
-  overflow: hidden;
+.main {
+  display: grid;
+  grid-template-columns: inherit;
+  grid-column: full;
 }
 
-.layout > footer {
+@layer layout {
+  .main > * {
+    grid-column: content;
+  }
+}
+
+.footer {
   margin-top: auto;
   padding-top: 48px;
   display: flex;

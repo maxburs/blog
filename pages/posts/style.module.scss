@@ -1,25 +1,23 @@
-.title {
-  margin-bottom: 0;
+.article,
+.markdown {
+  grid-column: full;
+  display: grid;
+  grid-template-columns: inherit;
 }
 
-.date {
-  margin: 8px 0 32px 0;
-  font-size: 0.8em;
-}
-
-/* Items are individually sized so we can increase with width with inline styles in the .md files */
-.title,
-.date,
-.markdown > * {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+@layer layout {
+  .article,
+  .markdown {
+    > * {
+      grid-column: content;
+    }
+  }
 }
 
 .markdown {
-  & > p {
-    overflow: auto;
-  }
+  display: grid;
+  grid-template-columns: inherit;
+
   img {
     max-width: calc(100% + 32px);
     margin: 0 -16px;
@@ -28,14 +26,45 @@
   /* Shadow prism-okaidia styles */
 
   :global {
-    pre[class*='language-'] {
-      padding: 12px 16px;
+    // Wraps pre for some reason
+    .gatsby-highlight {
+      display: contents;
     }
-    :not(pre) > code[class*='language-'],
-    pre[class*='language-'] {
-      background-color: #28292b;
+
+    pre[class*='language-'],
+    code[class*='language-'] {
+      padding: 12px 16px;
+      background-color: oklch(0.3 0.01 var(--brand-hue));
+    }
+
+    // With code block
+
+    pre:has(code) {
+      display: contents;
+    }
+
+    // [class*="language-"] added to increase specificity
+    code[class*='language-'] {
+      grid-column: full;
+      padding: 12px 16px;
+      box-sizing: content-box;
+      width: 80ch;
+      max-width: 100%;
+      display: block;
+      margin: 0.5em auto;
+      overflow: auto;
+      font-size: 0.9rem;
     }
   }
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.date {
+  margin: 8px 0 32px 0;
+  font-size: 0.8em;
 }
 
 .nav {

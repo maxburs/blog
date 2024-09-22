@@ -33,7 +33,7 @@ const Post = ({ post, lastPost, nextPost }: Props) => (
     <Head key="description">
       <meta name="description" content={post.excerpt} />
     </Head>
-    <article>
+    <article className={style.article}>
       <h1 className={style.title}>{post.title}</h1>
       <DateFormatter className={style.date} dateString={post.date} />
       <div

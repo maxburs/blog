@@ -13,36 +13,30 @@ const title = (
   </Link>
 );
 
-export interface LayoutProps {
-  fullWidth?: boolean;
-}
-
-export const Layout: React.FC<LayoutProps> = ({ children, fullWidth }) => {
+export const Layout: React.FC = ({ children }) => {
   const router = useRouter();
 
   return (
     <>
       <Meta />
-      <div className={styles.layout}>
-        <header>
-          {router.pathname === '/' ? (
-            <h1>{title}</h1>
-          ) : (
-            <h3 style={{ marginTop: 0 }}>{title} </h3>
-          )}
-        </header>
-        <main data-full-width={fullWidth ? true : undefined}>{children}</main>
-        <footer>
-          <span>
-            © {new Date().getFullYear()} /{' '}
-            <a href="https://www.github.com/maxburs">github</a> /{' '}
-            <a rel="alternate" type="application/rss+xml" href="/rss.xml">
-              rss
-            </a>
-          </span>
-          <ThemePicker />
-        </footer>
-      </div>
+      <header>
+        {router.pathname === '/' ? (
+          <h1>{title}</h1>
+        ) : (
+          <h3 style={{ marginTop: 0 }}>{title} </h3>
+        )}
+      </header>
+      <main className={styles.main}>{children}</main>
+      <footer className={styles.footer}>
+        <span>
+          © {new Date().getFullYear()} /{' '}
+          <a href="https://www.github.com/maxburs">github</a> /{' '}
+          <a rel="alternate" type="application/rss+xml" href="/rss.xml">
+            rss
+          </a>
+        </span>
+        <ThemePicker />
+      </footer>
     </>
   );
 };
