@@ -86,7 +86,7 @@ body {
   @include light-theme;
 
   font-family: Merriweather, Georgia, serif;
-  line-height: 1.6;
+  line-height: 1.7;
 
   --brand-hue: 108;
   --brand2-hue: calc(360 - var(--brand-hue));
@@ -133,24 +133,12 @@ hr {
   height: 1px;
 }
 
-/* Adjust code block margins to match paragraphs */
-pre[class*='language-'],
-p {
-  margin: 0 0 1.5em 0;
-}
-
 pre[class*='language-'] {
   padding: 16px;
   margin-left: -16px;
   margin-right: -16px;
   border-radius: 0;
   overflow-y: auto;
-}
-
-code[class*='language-'],
-pre[class*='language-'] {
-  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier,
-    monospace;
 }
 
 select {
