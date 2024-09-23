@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react';
+import { createSignal, onMount } from 'solid-js';
 import { ThemeState } from '../../types';
 
 import style from './theme-picker.module.css';
 
-export const ThemePicker: React.FC = () => {
-  const [theme, setTheme] = useState<ThemeState | 'disabled'>('disabled');
-  useEffect(() => {
+export const ThemePicker = () => {
+  const [getTheme, setTheme] = createSignal<ThemeState | 'disabled'>(
+    'disabled',
+  );
+
+  onMount(() => {
     try {
       setTheme(
         (document.documentElement.dataset.theme as ThemeState) ?? 'auto',
@@ -13,18 +16,18 @@ export const ThemePicker: React.FC = () => {
     } catch {
       setTheme('auto');
     }
-  }, []);
+  });
 
   return (
     <>
-      <label className={style.label} htmlFor="theme-selector">
+      <label class={style.label} html-for="theme-selector">
         Theme
       </label>
       <select
-        className={style.dropdown}
+        class={style.dropdown}
         id="theme-selector"
-        disabled={theme === 'disabled'}
-        value={theme === 'disabled' ? 'auto' : theme}
+        disabled={getTheme() === 'disabled'}
+        value={getTheme() === 'disabled' ? 'auto' : getTheme()}
         onChange={(event) => {
           const value = event.target.value as ThemeState;
           document.documentElement.dataset.theme = value;

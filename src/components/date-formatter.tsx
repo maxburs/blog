@@ -5,10 +5,10 @@ export interface Props {
   className?: string;
 }
 
-export const DateFormatter: React.FC<Props> = ({ dateString, className }) => {
+export function DateFormatter({ dateString, className }: Props) {
   const date = parseISO(dateString);
   return (
-    <time className={className} dateTime={dateString}>
+    <time class={className} dateTime={dateString}>
       {date.toLocaleDateString(undefined, {
         month: 'long',
         year: 'numeric',
@@ -16,4 +16,4 @@ export const DateFormatter: React.FC<Props> = ({ dateString, className }) => {
       })}
     </time>
   );
-};
+}
