@@ -25,55 +25,49 @@ import { getAllPosts } from '~/lib/api';
 import { A } from '@solidjs/router';
 import { createResource, For } from 'solid-js';
 
-async function getStaticProps() {
-  'use server';
-  const posts = getAllPosts().map((p) => {
-    const { content: _, ...rest } = p;
-    return rest;
-  });
-
-  console.log({ posts });
-
-  return { posts };
-}
-
 const author = 'Maxwell Burson';
 
-export default async function Home() {
-  // const [getPosts] = createResource(getStaticProps);
+export default function Home() {
+  const [getPosts] = createResource(async () => {
+    'use sever';
 
-  // return <div>wut {JSON.stringify(getPosts())}</div>
-  return <div>wut </div>;
+    return getAllPosts().map((p) => {
+      const { content: _, ...rest } = p;
+      return rest;
+    });
+  });
 
-  // return (
-  //   <Layout mainProps={{ class: styles.main }}>
-  //     <div class={styles.bio}>
-  //       <img
-  //         alt="Picture of the author"
-  //         src="/me/50.jpg"
-  //         srcSet="/me/50.jpg 50w, /me/100.jpg 100w"
-  //         class={styles.avatar}
-  //         width={50}
-  //         height={50}
-  //         sizes="50px"
-  //       />
-  //       <p>
-  //         <strong>{author}</strong> writes about web development and TypeScript
-  //       </p>
-  //     </div>
-  //     <For each={posts}>
-  //       {(post) => (
-  //         <div class={styles.post}>
-  //           <h3>
-  //             {/* <A href={`/posts/${post.slug}`}>{post.title}</A> */}
-  //           </h3>
-  //           <small>
-  //             <DateFormatter dateString={post.date} />
-  //           </small>
-  //           <p>{post.excerpt}</p>
-  //         </div>
-  //       )}
-  //     </For>
-  //   </Layout>
-  // );
+  console.log({ posts: getPosts() });
+
+  return (
+    <Layout mainProps={{ class: styles.main }}>
+      <div class={styles.bio}>
+        <img
+          alt="Picture of the author"
+          src="/me/50.jpg"
+          srcSet="/me/50.jpg 50w, /me/100.jpg 100w"
+          class={styles.avatar}
+          width={50}
+          height={50}
+          sizes="50px"
+        />
+        <p>
+          <strong>{author}</strong> writes about web development and TypeScript
+        </p>
+      </div>
+      <For each={getPosts()}>
+        {(post) => (
+          <div class={styles.post}>
+            <h3>
+              <A href={`/posts/${post.slug}`}>{post.title}</A>
+            </h3>
+            <small>
+              <DateFormatter dateString={post.date} />
+            </small>
+            <p>{post.excerpt}</p>
+          </div>
+        )}
+      </For>
+    </Layout>
+  );
 }
