@@ -1,29 +1,11 @@
-// import { Title } from "@solidjs/meta";
-
-// export default function Home() {
-//   return (
-//     <main>
-//       <Title>Hello World</Title>
-//       <h1>Hello world!</h1>
-//       <Counter />
-//       <p>
-//         Visit{" "}
-//         <a href="https://start.solidjs.com" target="_blank">
-//           start.solidjs.com
-//         </a>{" "}
-//         to learn how to build SolidStart apps.
-//       </p>
-//     </main>
-//   );
-// }
-
-import styles from './index.module.css';
+import { A } from '@solidjs/router';
+import { createResource, For } from 'solid-js';
 
 import { DateFormatter } from '~/components/date-formatter';
 import { Layout } from '~/components/layout/layout';
 import { getAllPosts } from '~/lib/api';
-import { A } from '@solidjs/router';
-import { createResource, For } from 'solid-js';
+
+import styles from './index.module.css';
 
 const author = 'Maxwell Burson';
 
@@ -36,8 +18,6 @@ export default function Home() {
       return rest;
     });
   });
-
-  console.log({ posts: getPosts() });
 
   return (
     <Layout mainProps={{ class: styles.main }}>
