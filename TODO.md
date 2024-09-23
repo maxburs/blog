@@ -1,0 +1,5 @@
+- Update site nav + header
+  - On blog posts, move name under post title + add a "all posts button to the top"
+  - Add a "all posts" button to the bottom
+  - Don't forget about the 404 page
+- Update post list to be a `ul`
