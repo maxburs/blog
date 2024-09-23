@@ -3,3 +3,4 @@
   - Add a "all posts" button to the bottom
   - Don't forget about the 404 page
 - Update post list to be a `ul`
+- Move face alongside name on main page
