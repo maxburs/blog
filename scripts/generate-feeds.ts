@@ -1,9 +1,9 @@
 import { Feed } from 'feed';
 import fs from 'fs';
 
-import constants from '../../constants.json';
-import { getAllPosts } from './api';
-import { markdownToHtml } from './markdownToHtml';
+import constants from '../constants.json';
+import { getAllPosts } from '../src/lib/api';
+import { markdownToHtml } from '../src/lib/markdownToHtml';
 
 const url = process.env.__URL ?? constants.fallbackUrl;
 
