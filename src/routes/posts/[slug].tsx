@@ -1,5 +1,5 @@
 import { A, RouteDefinition, RouteSectionProps } from '@solidjs/router';
-import { createResource, Show } from 'solid-js';
+import { Accessor, createResource, Match, Show, Switch } from 'solid-js';
 import { Link, Meta, Title } from '@solidjs/meta';
 
 import constants from '../../../constants.json';
@@ -11,17 +11,71 @@ import { DateFormatter } from '../../components/date-formatter';
 
 import styles from './posts.module.scss';
 import 'prismjs/themes/prism-okaidia.css';
+import NotFound from '../[...404]';
 
-interface Props {
+interface PostProps {
+  data: Accessor<PostData>;
+}
+
+function Post(props: PostProps) {
+  const post = () => props.data().post;
+
+  return (
+    <>
+      <Link
+        rel="canonical"
+        href={`https://maxburson.com/posts/${post().slug}`}
+      />
+      <Title>{`${constants.title} - ${post().title}`}</Title>
+      <Meta name="keywords" content={post().tags} />
+      <Meta name="description" content={post().excerpt} />
+      <article class={styles.article}>
+        <h1 class={styles.title}>{post().title}</h1>
+        <DateFormatter className={styles.date} dateString={post().date} />
+        <div class={styles.markdown} innerHTML={post().content} />
+      </article>
+      <ul class={styles.nav}>
+        <li>
+          <Show when={props.data().lastPost}>
+            {(post) => (
+              <A href={`/posts/${post().slug}`} rel="prev">
+                ← {post().title}
+              </A>
+            )}
+          </Show>
+        </li>
+        <li>
+          <Show when={props.data().nextPost}>
+            {(post) => (
+              <a href={`/posts/${post().slug}`} rel="next">
+                {post().title} →
+              </a>
+            )}
+          </Show>
+        </li>
+      </ul>
+    </>
+  );
+}
+
+interface PostData {
+  kind: 'success';
   post: IPost;
   nextPost: null | Pick<IPost, 'slug' | 'title'>;
   lastPost: null | Pick<IPost, 'slug' | 'title'>;
 }
 
-const getPostData = async (slug: string): Promise<Props> => {
+type PostRouteData = PostData | { kind: '404' };
+
+async function getPostData(slug: string): Promise<PostRouteData> {
   'use server';
 
   const post = getPostBySlug(slug);
+
+  if (!post) {
+    return { kind: '404' };
+  }
+
   const content = await markdownToHtml(post.content);
 
   const allPosts = getAllPosts();
@@ -33,71 +87,35 @@ const getPostData = async (slug: string): Promise<Props> => {
   const nextPost = allPosts[index + 1] ?? null;
 
   return {
+    kind: 'success',
     post: { ...post, content },
     lastPost: lastPost && { slug: lastPost.slug, title: lastPost.title },
     nextPost: nextPost && { slug: nextPost.slug, title: nextPost.title },
   };
-};
+}
 
 export const route: RouteDefinition = {
   load: async ({ params }) => getPostData(params.slug),
 };
 
-export default function Post(props: RouteSectionProps) {
-  const [getData] = createResource(() => getPostData(props.params.slug));
+export default function PostRoute(props: RouteSectionProps) {
+  const [getRouteData] = createResource(() => getPostData(props.params.slug));
 
   return (
     <Layout mainProps={{ class: styles.main }}>
-      <Show when={getData()}>
-        {(props) => (
-          <>
-            <Link
-              rel="canonical"
-              href={`https://maxburson.com/posts/${props().post.slug}`}
-            />
-            <Title>{`${constants.title} - ${props().post.title}`}</Title>
-            <Meta name="keywords" content={props().post.tags} />
-            <Meta name="description" content={props().post.excerpt} />
-            <article class={styles.article}>
-              <h1 class={styles.title}>{props().post.title}</h1>
-              <DateFormatter
-                className={styles.date}
-                dateString={props().post.date}
-              />
-              <div class={styles.markdown} innerHTML={props().post.content} />
-            </article>
-            <ul class={styles.nav}>
-              <Show when={props().lastPost}>
-                {(post) => (
-                  <A href={`/posts/${post().slug}`} rel="prev">
-                    ← {post().title}
-                  </A>
-                )}
-              </Show>
-              <Show when={props().nextPost}>
-                {(post) => (
-                  <li>
-                    <a href={`/posts/${post().slug}`} rel="next">
-                      {post().title} →
-                    </a>
-                  </li>
-                )}
-              </Show>
-            </ul>
-          </>
-        )}
-      </Show>
+      <Switch>
+        <Match
+          when={(() => {
+            const data = getRouteData();
+            return data?.kind === 'success' ? data : undefined;
+          })()}
+        >
+          {(routeData) => <Post data={routeData} />}
+        </Match>
+        <Match when={getRouteData()?.kind === '404'}>
+          <NotFound />
+        </Match>
+      </Switch>
     </Layout>
   );
 }
-
-// export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (
-//   slug: string,
-// ) => {
-//   const posts = getPostSlugs();
-
-//   return {
-//     paths: posts.map((slug) => ({ params: { slug } })),
-//     fallback: false,
-//   };
-// };

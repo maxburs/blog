@@ -39,7 +39,7 @@
     "@solidjs/router": "^0.14.1",
     "@solidjs/start": "^1.0.6",
     "@types/jest": "^25.2.2",
-    "@types/node": "22",
+    "@types/node": "20",
     "date-fns": "2.10.0",
     "feed": "^4.2.1",
     "gatsby-remark-prismjs": "^3.10.0",

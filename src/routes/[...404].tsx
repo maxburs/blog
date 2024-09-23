@@ -4,7 +4,7 @@ import { HttpStatusCode } from '@solidjs/start';
 import { Layout } from '../components/layout/layout';
 import styles from './404.module.css';
 
-export default function NotFound() {
+export function NotFound() {
   return (
     <Layout mainProps={{ class: styles.main }}>
       <Title>Not Found</Title>
@@ -13,3 +13,5 @@ export default function NotFound() {
     </Layout>
   );
 }
+
+export default NotFound;
