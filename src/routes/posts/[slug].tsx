@@ -1,4 +1,4 @@
-import { A, useParams } from '@solidjs/router';
+import { A, RouteDefinition, RouteSectionProps } from '@solidjs/router';
 import { createResource, Show } from 'solid-js';
 import { Link, Meta, Title } from '@solidjs/meta';
 
@@ -18,7 +18,7 @@ interface Props {
   lastPost: null | Pick<IPost, 'slug' | 'title'>;
 }
 
-const getStaticProps = async (slug: string): Promise<Props> => {
+const getPostData = async (slug: string): Promise<Props> => {
   'use server';
 
   const post = getPostBySlug(slug);
@@ -39,45 +39,54 @@ const getStaticProps = async (slug: string): Promise<Props> => {
   };
 };
 
-export default async function Post() {
-  const params = useParams();
+export const route: RouteDefinition = {
+  load: async ({ params }) => getPostData(params.slug),
+};
 
-  const [getProps] = createResource(() => getStaticProps(params.slug));
-
-  const post = () => getProps()?.post;
+export default function Post(props: RouteSectionProps) {
+  const [getData] = createResource(() => getPostData(props.params.slug));
 
   return (
     <Layout mainProps={{ class: styles.main }}>
-      {/* <Link
-        rel="canonical"
-        href={`https://maxburson.com/posts/${post()?.slug}`}
-      />
-      <Title>{`${constants.title} - ${post()?.title}`}</Title>
-      <Meta name="keywords" content={post()?.tags} />
-      <Meta name="description" content={post()?.excerpt} /> */}
-      <article class={styles.article}>
-        <h1 class={styles.title}>{post()?.title}</h1>
-        {/* <DateFormatter className={styles.date} dateString={post()?.date} /> */}
-        <div class={styles.markdown} innerHTML={post()?.content} />
-      </article>
-      <ul class={styles.nav}>
-        <Show when={getProps()?.lastPost}>
-          {(post) => (
-            <A href={`/posts/${post()?.slug}`} rel="prev">
-              ← {post()?.title}
-            </A>
-          )}
-        </Show>
-        <Show when={getProps()?.nextPost}>
-          {(post) => (
-            <li>
-              <a href={`/posts/${post()?.slug}`} rel="next">
-                {post()?.title} →
-              </a>
-            </li>
-          )}
-        </Show>
-      </ul>
+      <Show when={getData()}>
+        {(props) => (
+          <>
+            <Link
+              rel="canonical"
+              href={`https://maxburson.com/posts/${props().post.slug}`}
+            />
+            <Title>{`${constants.title} - ${props().post.title}`}</Title>
+            <Meta name="keywords" content={props().post.tags} />
+            <Meta name="description" content={props().post.excerpt} />
+            <article class={styles.article}>
+              <h1 class={styles.title}>{props().post.title}</h1>
+              <DateFormatter
+                className={styles.date}
+                dateString={props().post.date}
+              />
+              <div class={styles.markdown} innerHTML={props().post.content} />
+            </article>
+            <ul class={styles.nav}>
+              <Show when={props().lastPost}>
+                {(post) => (
+                  <A href={`/posts/${post().slug}`} rel="prev">
+                    ← {post().title}
+                  </A>
+                )}
+              </Show>
+              <Show when={props().nextPost}>
+                {(post) => (
+                  <li>
+                    <a href={`/posts/${post().slug}`} rel="next">
+                      {post().title} →
+                    </a>
+                  </li>
+                )}
+              </Show>
+            </ul>
+          </>
+        )}
+      </Show>
     </Layout>
   );
 }
