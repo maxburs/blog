@@ -5,7 +5,7 @@ import { Link, Meta, Title } from '@solidjs/meta';
 import constants from '../../../constants.json';
 import { Layout } from '../../components/layout/layout';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
-import { markdownToHtml } from '../../lib/markdownToHtml';
+import { markdownToHtml } from '../../lib/markdown-to-html';
 import type { IPost } from '../../types';
 import { DateFormatter } from '../../components/date-formatter';
 
@@ -18,51 +18,9 @@ interface Props {
   lastPost: null | Pick<IPost, 'slug' | 'title'>;
 }
 
-export default function Post() {
-  const params = useParams();
-
-  const [getProps] = createResource(() => getStaticProps(params.slug));
-
-  const post = () => getProps()!.post;
-
-  return (
-    <Layout mainProps={{ class: styles.main }}>
-      <Link
-        rel="canonical"
-        href={`https://maxburson.com/posts/${post().slug}`}
-      />
-      <Title>{`${constants.title} - ${post().title}`}</Title>
-      <Meta name="keywords" content={post().tags} />
-      <Meta name="description" content={post().excerpt} />
-      <article class={styles.article}>
-        <h1 class={styles.title}>{post().title}</h1>
-        <DateFormatter className={styles.date} dateString={post().date} />
-        <div class={styles.markdown} innerHTML={post().content} />
-      </article>
-      <ul class={styles.nav}>
-        <Show when={getProps()?.lastPost}>
-          {(post) => (
-            <A href={`/posts/${post().slug}`} rel="prev">
-              ← {post().title}
-            </A>
-          )}
-        </Show>
-        <Show when={getProps()?.nextPost}>
-          {(post) => (
-            <li>
-              <a href={`/posts/${post().slug}`} rel="next">
-                {post().title} →
-              </a>
-            </li>
-          )}
-        </Show>
-      </ul>
-    </Layout>
-  );
-}
-
-export const getStaticProps = async (slug: string): Promise<Props> => {
+const getStaticProps = async (slug: string): Promise<Props> => {
   'use server';
+
   const post = getPostBySlug(slug);
   const content = await markdownToHtml(post.content);
 
@@ -80,6 +38,49 @@ export const getStaticProps = async (slug: string): Promise<Props> => {
     nextPost: nextPost && { slug: nextPost.slug, title: nextPost.title },
   };
 };
+
+export default async function Post() {
+  const params = useParams();
+
+  const [getProps] = createResource(() => getStaticProps(params.slug));
+
+  const post = () => getProps()?.post;
+
+  return (
+    <Layout mainProps={{ class: styles.main }}>
+      {/* <Link
+        rel="canonical"
+        href={`https://maxburson.com/posts/${post()?.slug}`}
+      />
+      <Title>{`${constants.title} - ${post()?.title}`}</Title>
+      <Meta name="keywords" content={post()?.tags} />
+      <Meta name="description" content={post()?.excerpt} /> */}
+      <article class={styles.article}>
+        <h1 class={styles.title}>{post()?.title}</h1>
+        {/* <DateFormatter className={styles.date} dateString={post()?.date} /> */}
+        <div class={styles.markdown} innerHTML={post()?.content} />
+      </article>
+      <ul class={styles.nav}>
+        <Show when={getProps()?.lastPost}>
+          {(post) => (
+            <A href={`/posts/${post()?.slug}`} rel="prev">
+              ← {post()?.title}
+            </A>
+          )}
+        </Show>
+        <Show when={getProps()?.nextPost}>
+          {(post) => (
+            <li>
+              <a href={`/posts/${post()?.slug}`} rel="next">
+                {post()?.title} →
+              </a>
+            </li>
+          )}
+        </Show>
+      </ul>
+    </Layout>
+  );
+}
 
 // export const getStaticPaths: GetStaticPaths<{ slug: string }> = async (
 //   slug: string,

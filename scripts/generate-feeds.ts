@@ -3,7 +3,7 @@ import fs from 'fs';
 
 import constants from '../constants.json';
 import { getAllPosts } from '../src/lib/api';
-import { markdownToHtml } from '../src/lib/markdownToHtml';
+import { markdownToHtml } from '../src/lib/markdown-to-html';
 
 const url = process.env.__URL ?? constants.fallbackUrl;
 

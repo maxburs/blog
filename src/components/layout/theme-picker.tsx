@@ -1,4 +1,4 @@
-import { createSignal, onMount } from 'solid-js';
+import { createEffect, createSignal, onMount } from 'solid-js';
 import { ThemeState } from '../../types';
 
 import style from './theme-picker.module.css';
@@ -16,6 +16,10 @@ export const ThemePicker = () => {
     } catch {
       setTheme('auto');
     }
+  });
+
+  createEffect(() => {
+    console.log({ theme: getTheme() });
   });
 
   return (
