@@ -4,3 +4,4 @@
   - Don't forget about the 404 page
 - Update post list to be a `ul`
 - Move face alongside name on main page. Or get rid of it?
+- Bug: Code text pop-in on blog posts
