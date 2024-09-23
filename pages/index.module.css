@@ -1,3 +1,7 @@
+.main {
+  grid-column: content;
+}
+
 .bio {
   display: flex;
   margin-bottom: 16px;

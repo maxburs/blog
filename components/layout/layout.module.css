@@ -1,23 +1,38 @@
-.main {
-  display: grid;
-  grid-template-columns: inherit;
-  grid-column: full;
-}
-
 @layer layout {
-  .main > * {
-    grid-column: content;
+  .layout {
+    min-height: 100%;
+    padding: 32px 0 16px 0;
+    display: grid;
+    grid-template-columns:
+      [full-start] 1fr [content-start] minmax(0, var(--content-width))
+      [content-end] 1fr [full-end];
+    grid-template-rows: [header] auto [main] 1fr [footer] auto;
   }
-}
 
-.footer {
-  margin-top: auto;
-  padding-top: 48px;
-  display: flex;
-  flex-direction: row;
-}
+  .layout > header {
+    grid-area: header / content;
+  }
 
-.link {
-  text-decoration: none;
-  color: inherit;
+  .layout > main {
+    grid-area: main / full;
+  }
+
+  .layout > footer {
+    grid-area: footer / content;
+    padding-top: 48px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .layout > :is(header, footer) > *:last-child {
+    margin-bottom: 0;
+  }
+  .layout > :is(header, footer) > *:first-child {
+    margin-top: 0;
+  }
 }

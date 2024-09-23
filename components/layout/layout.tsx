@@ -52,34 +52,34 @@ const Meta: React.FC = () => (
 
 const title = (
   <Link href="/">
-    <a className={styles.link}>Max's Blog</a>
+    <a className={styles.link}>Max Burson</a>
   </Link>
 );
 
-export const Layout: React.FC = ({ children }) => {
+export interface LayoutProps {
+  mainProps?: React.HTMLProps<HTMLElement>;
+}
+
+export const Layout: React.FC<LayoutProps> = ({ children, mainProps }) => {
   const router = useRouter();
 
   return (
-    <>
+    <div className={styles.layout}>
       <Meta />
       <header>
-        {router.pathname === '/' ? (
-          <h1>{title}</h1>
-        ) : (
-          <h3 style={{ marginTop: 0 }}>{title} </h3>
-        )}
+        {router.pathname === '/' ? <h1>{title}</h1> : <h3>{title} </h3>}
       </header>
-      <main className={styles.main}>{children}</main>
+      <main {...mainProps}>{children}</main>
       <footer className={styles.footer}>
         <span>
-          © {new Date().getFullYear()} /{' '}
-          <a href="https://www.github.com/maxburs">github</a> /{' '}
+          © {new Date().toLocaleDateString(undefined, { year: 'numeric' })} /{' '}
+          <a href="https://www.github.com/maxburs">GitHub</a> /{' '}
           <a rel="alternate" type="application/rss+xml" href="/rss.xml">
-            rss
+            RSS
           </a>
         </span>
         <ThemePicker />
       </footer>
-    </>
+    </div>
   );
 };

@@ -65,6 +65,10 @@ body {
   height: 100%;
 }
 
+#__next {
+  display: contents;
+}
+
 @mixin light-theme {
   --brand: oklch(0.81 0.2 var(--brand-hue));
   --black: color-mix(in oklch, var(--brand) 28.5%, black);
@@ -75,7 +79,7 @@ body {
 
 @mixin dark-theme {
   --black: color-mix(in oklch, var(--brand) 20%, white);
-  --white: oklch(0.26 0.01 var(--brand-hue));
+  --white: oklch(0.225 0.01 var(--brand-hue));
   --link-color: oklch(0.75 0.15 var(--brand2-hue));
   --brand: oklch(0.81 0.2 var(--brand-hue));
   --brand2: oklch(1 1 var(--brand2-hue));
@@ -94,6 +98,7 @@ body {
   background-color: var(--white);
   color: var(--black);
   --gray300: color-mix(in oklch, var(--white), var(--black) 80%);
+  --content-width: 612px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -106,160 +111,54 @@ html[data-theme='dark'] {
   @include dark-theme;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: Montserrat, sans-serif;
-  line-height: 1.1;
-  margin-top: 2rem;
-  color: var(--black);
-}
-
-a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-hr {
-  background-color: var(--gray300);
-  border: none;
-  height: 1px;
-}
-
-pre[class*='language-'] {
-  padding: 16px;
-  margin-left: -16px;
-  margin-right: -16px;
-  border-radius: 0;
-  overflow-y: auto;
-}
-
-select {
-  border-color: var(--gray300);
-  color: var(--black);
-  background-color: var(--white);
-}
-
-:focus-visible {
-  outline-color: color-mix(in oklab, var(--link-color), var(--black) 30%);
-}
-
-::selection {
-  background-color: color-mix(in oklab, var(--brand), var(--white) 30%);
-}
-
-/// Layout
-
-@layer layout {
-  #__next {
-    min-height: 100%;
-    padding: 32px 0 16px 0;
+@layer default-style {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Montserrat, sans-serif;
+    line-height: 1.7;
+    margin-top: 2rem;
+    margin-bottom: 0.25em;
+    color: var(--black);
   }
 
-  #__next,
-  .full-width {
-    --minimum-content-padding: 8px;
-
-    /** TRACK WIDTHS **/
-    --full-max-width: 1fr;
-    --breakout-max-width: 80ch;
-    --content-max-width: 64ch;
-    --inset-content-max-width: 48ch;
-
-    /** TRACK SIZES **/
-    --full: minmax(var(--minimum-content-padding), 1fr);
-    --breakout: minmax(
-      0,
-      calc((var(--breakout-max-width) - var(--content-max-width)) * 0.5)
-    );
-    --content: minmax(
-      0,
-      calc((var(--content-max-width) - var(--inset-content-max-width)) * 0.5)
-    );
-    --inset-content: min(
-      var(--inset-content-max-width),
-      100% - var(--minimum-content-padding) * 2
-    );
-
-    display: grid;
-    grid-template-columns:
-      [full-start]
-      var(--full)
-      [breakout-start]
-      var(--breakout)
-      [content-start]
-      var(--content)
-      [inset-content-start]
-      var(--inset-content)
-      [inset-content-end]
-      var(--content)
-      [content-end]
-      var(--breakout)
-      [breakout-end]
-      var(--full)
-      [full-end];
-
-    > * {
-      grid-column: content;
-    }
+  a {
+    color: var(--link-color);
+    text-decoration: none;
   }
 
-  /** CLASSES **/
-  .full {
-    grid-column: full;
-  }
-  .full-start {
-    grid-column-start: full-start;
-  }
-  .full-end {
-    grid-column-end: full-end;
+  a:hover {
+    text-decoration: underline;
   }
 
-  .breakout {
-    grid-column: breakout;
-  }
-  .breakout-start {
-    grid-column-start: breakout-start;
-  }
-  .breakout-end {
-    grid-column-end: breakout-end;
+  hr {
+    background-color: var(--gray300);
+    border: none;
+    height: 1px;
   }
 
-  .content {
-    grid-column: content;
-  }
-  .content-start {
-    grid-column-start: content-start;
-  }
-  .content-end {
-    grid-column-end: content-end;
+  pre[class*='language-'] {
+    padding: 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    border-radius: 0;
+    overflow-y: auto;
   }
 
-  .inset-content {
-    grid-column: inset-content;
-  }
-  .inset-content-start {
-    grid-column-start: inset-content-start;
-  }
-  .inset-content-end {
-    grid-column-end: inset-content-end;
+  select {
+    border-color: var(--gray300);
+    color: var(--black);
+    background-color: var(--white);
   }
 
-  .full-width {
-    grid-column: full;
+  :focus-visible {
+    outline-color: color-mix(in oklab, var(--link-color), var(--black) 30%);
   }
-  .full-content,
-  .full-content-nopad {
-    grid-column: full;
-  }
-  .full-content {
-    padding-inline: var(--minimum-content-padding);
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--brand), var(--white) 30%);
   }
 }
