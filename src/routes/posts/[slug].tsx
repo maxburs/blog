@@ -99,7 +99,10 @@ export const route: RouteDefinition = {
 };
 
 export default function PostRoute(props: RouteSectionProps) {
-  const [getRouteData] = createResource(() => getPostData(props.params.slug));
+  const [getRouteData] = createResource(
+    () => props.params.slug,
+    (slug) => getPostData(slug),
+  );
 
   return (
     <Layout mainProps={{ class: styles.main }}>

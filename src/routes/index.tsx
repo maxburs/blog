@@ -1,4 +1,4 @@
-import { A } from '@solidjs/router';
+import { A, RouteDefinition } from '@solidjs/router';
 import { createResource, For } from 'solid-js';
 
 import { DateFormatter } from '~/components/date-formatter';
@@ -9,15 +9,21 @@ import styles from './index.module.css';
 
 const author = 'Maxwell Burson';
 
-export default function Home() {
-  const [getPosts] = createResource(async () => {
-    'use sever';
+async function getMainRouteData() {
+  'use sever';
 
-    return getAllPosts().map((p) => {
-      const { content: _, ...rest } = p;
-      return rest;
-    });
+  return getAllPosts().map((p) => {
+    const { content: _, ...rest } = p;
+    return rest;
   });
+}
+
+export const route: RouteDefinition = {
+  load: getMainRouteData,
+};
+
+export default function Home() {
+  const [getPosts] = createResource(getMainRouteData);
 
   return (
     <Layout mainProps={{ class: styles.main }}>

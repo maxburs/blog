@@ -4,10 +4,5 @@ import { defineConfig } from '@solidjs/start/config';
 
 export default defineConfig({
   // https://nitro.unjs.io/config
-  server: {
-    preset: 'static',
-    prerender: {
-      crawlLinks: true,
-    },
-  },
+  server: { preset: 'static' },
 });
