@@ -1,5 +1,6 @@
 import { A, RouteDefinition } from '@solidjs/router';
 import { createResource, For } from 'solid-js';
+import { GET } from '@solidjs/start';
 
 import { DateFormatter } from '~/components/date-formatter';
 import { Layout } from '~/components/layout/layout';
@@ -9,14 +10,14 @@ import styles from './index.module.css';
 
 const author = 'Maxwell Burson';
 
-async function getMainRouteData() {
+const getMainRouteData = GET(async () => {
   'use server';
 
   return getAllPosts().map((p) => {
     const { content: _, ...rest } = p;
     return rest;
   });
-}
+});
 
 export const route: RouteDefinition = {
   load: getMainRouteData,

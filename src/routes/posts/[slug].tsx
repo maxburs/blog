@@ -1,6 +1,7 @@
 import { A, RouteDefinition, RouteSectionProps } from '@solidjs/router';
 import { Accessor, createResource, Match, Show, Switch } from 'solid-js';
 import { Link, Meta, Title } from '@solidjs/meta';
+import { GET } from '@solidjs/start';
 
 import constants from '../../../constants.json';
 import { Layout } from '../../components/layout/layout';
@@ -67,32 +68,34 @@ interface PostData {
 
 type PostRouteData = PostData | { kind: '404' };
 
-async function getPostData(slug: string): Promise<PostRouteData> {
-  'use server';
+const getPostData = GET(
+  async (slug: string): Promise<PostRouteData> => {
+    'use server';
 
-  const post = getPostBySlug(slug);
+    const post = getPostBySlug(slug);
 
-  if (!post) {
-    return { kind: '404' };
-  }
+    if (!post) {
+      return { kind: '404' };
+    }
 
-  const content = await markdownToHtml(post.content);
+    const content = await markdownToHtml(post.content);
 
-  const allPosts = getAllPosts();
-  const index = allPosts.findIndex((p) => p.slug == post.slug);
-  if (index === -1) {
-    throw new Error();
-  }
-  const lastPost = allPosts[index - 1] ?? null;
-  const nextPost = allPosts[index + 1] ?? null;
+    const allPosts = getAllPosts();
+    const index = allPosts.findIndex((p) => p.slug == post.slug);
+    if (index === -1) {
+      throw new Error();
+    }
+    const lastPost = allPosts[index - 1] ?? null;
+    const nextPost = allPosts[index + 1] ?? null;
 
-  return {
-    kind: 'success',
-    post: { ...post, content },
-    lastPost: lastPost && { slug: lastPost.slug, title: lastPost.title },
-    nextPost: nextPost && { slug: nextPost.slug, title: nextPost.title },
-  };
-}
+    return {
+      kind: 'success',
+      post: { ...post, content },
+      lastPost: lastPost && { slug: lastPost.slug, title: lastPost.title },
+      nextPost: nextPost && { slug: nextPost.slug, title: nextPost.title },
+    };
+  },
+);
 
 export const route: RouteDefinition = {
   load: async ({ params }) => getPostData(params.slug),
