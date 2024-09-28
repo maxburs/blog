@@ -10,7 +10,7 @@ import styles from './index.module.css';
 const author = 'Maxwell Burson';
 
 async function getMainRouteData() {
-  'use sever';
+  'use server';
 
   return getAllPosts().map((p) => {
     const { content: _, ...rest } = p;
