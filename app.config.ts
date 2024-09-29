@@ -9,7 +9,6 @@ export default defineConfig({
   server: {
     preset: 'static',
     prerender: {
-      autoSubfolderIndex: true,
       crawlLinks: true,
       failOnError: true,
     },
