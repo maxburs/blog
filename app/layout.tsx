@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import * as constants from '../constants';
 import localFont from 'next/font/local';
 
-import './global.scss';
+import './global.css';
 
 export const metadata: Metadata = {
   title: constants.title,
