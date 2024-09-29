@@ -11,8 +11,10 @@ import { DateFormatter } from '../../../components/date-formatter';
 
 import styles from './page.module.scss';
 import 'prismjs/themes/prism-okaidia.css';
+import { notFound } from 'next/navigation';
 
-export const dynamicParams = false;
+// https://github.com/vercel/next.js/issues/56253
+// export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
@@ -26,6 +28,9 @@ interface PageData {
 
 async function getPageData(slug: string): Promise<PageData> {
   const post = getPostBySlug(slug);
+  if (!post) {
+    throw notFound();
+  }
   const content = await markdownToHtml(post.content);
 
   const allPosts = getAllPosts();
@@ -53,10 +58,14 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
 
+  if (!post) {
+    throw notFound();
+  }
+
   return {
     title: `${constants.title} - ${post.title}`,
-    keywords: post.tags,
     description: post.excerpt,
+    keywords: post.tags,
     alternates: {
       canonical: `https://maxburson.com/posts/${post.slug}`,
     },

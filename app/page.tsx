@@ -7,31 +7,15 @@ import * as constants from '../constants';
 
 import styles from './page.module.css';
 
-async function getStaticProps() {
+async function getPageData() {
   return getAllPosts().map((p) => {
     const { content: _, ...rest } = p;
     return rest;
   });
 }
 
-// export async function generateMetadata(
-//   { params }: RouteProps,
-//   _parent: ResolvingMetadata,
-// ): Promise<Metadata> {
-//   const post = getPostBySlug(params.slug);
-
-//   return {
-//     title: `${constants.title} - ${post.title}`,
-//     keywords: post.tags,
-//     description: post.excerpt,
-//     alternates: {
-//       canonical: `https://maxburson.com/posts/${post.slug}`,
-//     },
-//   };
-// }
-
 export default async function Index() {
-  const posts = await getStaticProps();
+  const posts = await getPageData();
 
   return (
     <Layout root mainProps={{ className: styles.main }}>
