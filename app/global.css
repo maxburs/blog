@@ -39,9 +39,9 @@ body {
   --gray300: color-mix(in oklch, var(--white), var(--black) 80%);
   --content-width: 612px;
   --brand: oklch(0.81 0.2 var(--brand-hue));
-  --black: color-mix(in oklch, var(--brand) 28.5%, black);
+  --black: oklch(0.3 0.15 var(--brand-hue));
+  --header: oklch(0.2 0.44 var(--brand-hue));
   --white: color-mix(in oklch, var(--brand) 13%, white);
-  --header: var(--white);
   --link-color: oklch(0.55 0.35 var(--brand2-hue));
 }
 
