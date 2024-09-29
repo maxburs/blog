@@ -24,11 +24,6 @@
     flex-direction: row;
   }
 
-  .link {
-    text-decoration: none;
-    color: inherit;
-  }
-
   .layout > :is(header, footer) > *:last-child {
     margin-bottom: 0;
   }

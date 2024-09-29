@@ -17,10 +17,6 @@ body {
   height: 100%;
 }
 
-#__next {
-  display: contents;
-}
-
 @mixin light-theme {
   --brand: oklch(0.81 0.2 var(--brand-hue));
   --black: color-mix(in oklch, var(--brand) 28.5%, black);

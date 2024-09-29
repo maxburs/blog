@@ -15,15 +15,17 @@ export const Layout: React.FC<LayoutProps> = ({
   mainProps,
   root,
 }) => {
-  const title = (
-    <Link href="/" className={styles.link}>
-      Max Burson
-    </Link>
-  );
-
   return (
     <div className={styles.layout}>
-      <header>{root ? <h1>{title}</h1> : <h3>{title} </h3>}</header>
+      <header>
+        {root ? (
+          <h1>Max Burson</h1>
+        ) : (
+          <h3>
+            <Link href="/">Max Burson</Link>
+          </h3>
+        )}
+      </header>
       <main {...mainProps}>{children}</main>
       <footer className={styles.footer}>
         <span>

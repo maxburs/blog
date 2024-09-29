@@ -81,7 +81,7 @@ export default function RootLayout({
               "document.documentElement.dataset.theme = localStorage.getItem('theme') || 'auto';",
           }}
         />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );
