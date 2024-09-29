@@ -82,8 +82,8 @@
     }
 
     code[class*='language-'] {
-      font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier,
-        monospace;
+      font-family: var(--sf-mono-regular), Consolas, 'Liberation Mono', Menlo,
+        Courier, monospace;
     }
 
     // Non-block code (Single tick `)

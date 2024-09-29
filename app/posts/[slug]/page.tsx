@@ -69,6 +69,7 @@ export async function generateMetadata(
     alternates: {
       canonical: `https://maxburson.com/posts/${post.slug}`,
     },
+    // openGraph: {}
   };
 }
 
