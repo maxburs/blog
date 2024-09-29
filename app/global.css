@@ -52,7 +52,7 @@ html[data-theme='dark'] {
       color-scheme: dark;
 
       --black: oklch(0.75 0.015 var(--brand-hue));
-      --header: oklch(0.9 0.015 var(--brand-hue));
+      --header: oklch(0.9 0.02 var(--brand-hue));
       --white: oklch(0.225 0.01 var(--brand-hue));
       --link-color: oklch(0.75 0.15 var(--brand2-hue));
       --brand: oklch(0.81 0.2 var(--brand-hue));
