@@ -48,6 +48,7 @@
   "devDependencies": {
     "@swc-node/register": "^1.10.9",
     "@swc/core": "^1.7.26",
+    "@swc/types": "^0.1.12",
     "@types/jest": "^25.2.2",
     "@types/node": "22",
     "@types/react": "18",
