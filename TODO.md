@@ -8,3 +8,4 @@
 - Add light-mode code css variant
 - Cooler icon?
 - Add open graph headers? https://ogp.me/
+- Anchor tags?
