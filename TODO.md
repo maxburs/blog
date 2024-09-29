@@ -6,3 +6,4 @@
 - Move face alongside name on main page. Or get rid of it?
 - Bug: Code font pop-in on blog posts
 - Add light-mode code css variant
+- Cooler icon?
