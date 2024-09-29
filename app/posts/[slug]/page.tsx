@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 import * as constants from '../../../constants';
 
@@ -43,26 +43,31 @@ async function getPageData(slug: string): Promise<PageData> {
   };
 }
 
-export default async function Post({ params }: { params: { slug: string } }) {
+interface RouteProps {
+  params: { slug: string };
+}
+
+export async function generateMetadata(
+  { params }: RouteProps,
+  _parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const post = getPostBySlug(params.slug);
+
+  return {
+    title: `${constants.title} - ${post.title}`,
+    keywords: post.tags,
+    description: post.excerpt,
+    alternates: {
+      canonical: `https://maxburson.com/posts/${post.slug}`,
+    },
+  };
+}
+
+export default async function Post({ params }: RouteProps) {
   const { post, lastPost, nextPost } = await getPageData(params.slug);
 
   return (
     <Layout mainProps={{ className: styles.main }}>
-      <Head>
-        <link
-          rel="canonical"
-          href={`https://maxburson.com/posts/${post.slug}`}
-        />
-      </Head>
-      <Head key="title">
-        <title>{`${constants.title} - ${post.title}`}</title>
-      </Head>
-      <Head key="keywords">
-        <meta name="keywords" content={post.tags} />
-      </Head>
-      <Head key="description">
-        <meta name="description" content={post.excerpt} />
-      </Head>
       <article className={styles.article}>
         <h1 className={styles.title}>{post.title}</h1>
         <DateFormatter className={styles.date} dateString={post.date} />

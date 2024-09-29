@@ -14,6 +14,22 @@ async function getStaticProps() {
   });
 }
 
+// export async function generateMetadata(
+//   { params }: RouteProps,
+//   _parent: ResolvingMetadata,
+// ): Promise<Metadata> {
+//   const post = getPostBySlug(params.slug);
+
+//   return {
+//     title: `${constants.title} - ${post.title}`,
+//     keywords: post.tags,
+//     description: post.excerpt,
+//     alternates: {
+//       canonical: `https://maxburson.com/posts/${post.slug}`,
+//     },
+//   };
+// }
+
 export default async function Index() {
   const posts = await getStaticProps();
 
