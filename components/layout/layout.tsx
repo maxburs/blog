@@ -3,29 +3,33 @@ import Link from 'next/link';
 
 import { ThemePicker } from './theme-picker';
 import styles from './layout.module.css';
+import * as constants from '../../constants';
 
 export interface LayoutProps {
-  root?: boolean;
+  header?: React.ReactNode;
   mainProps?: React.HTMLProps<HTMLElement>;
   children: React.ReactNode;
+  className?: string;
 }
 
 export const Layout: React.FC<LayoutProps> = ({
   children,
   mainProps,
-  root,
+  header,
+  className,
 }) => {
   return (
-    <div className={styles.layout}>
-      <header>
-        {root ? (
-          <h1>Max Burson</h1>
-        ) : (
-          <h3>
-            <Link href="/">Max Burson</Link>
-          </h3>
-        )}
-      </header>
+    <div
+      className={className ? `${styles.layout} ${className}` : styles.layout}
+    >
+      {header ?? (
+        <header>
+          <Link className={styles.headerLink} href="/">
+            {constants.title}
+          </Link>
+        </header>
+      )}
+
       <main {...mainProps}>{children}</main>
       <footer className={styles.footer}>
         <span>

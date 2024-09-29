@@ -11,6 +11,11 @@
 
   .layout > header {
     grid-area: header / content;
+    margin-bottom: 32px;
+  }
+
+  .headerLink {
+    font-family: var(--montserrat), sans-serif;
   }
 
   .layout > main {

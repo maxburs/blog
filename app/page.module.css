@@ -1,15 +1,13 @@
-.main {
+.layout main {
   grid-column: content;
 }
 
 .bio {
   display: flex;
-  margin-bottom: 16px;
-}
-
-.bio p {
-  margin-top: 0;
-  margin-left: 16px;
+  & p {
+    margin-top: 0;
+    margin-left: 16px;
+  }
 }
 
 .avatar {
@@ -21,14 +19,20 @@
 
 .post {
   margin-top: 32px;
-}
 
-.post h2 {
-  margin-top: 0;
-  margin-bottom: 0.25em;
-  font-size: 1.17em;
-}
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  & h2 {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+    font-size: 1.17em;
+  }
 
-.post p {
-  margin-top: 0.25em;
+  & p {
+    margin-top: 0.25em;
+  }
 }
