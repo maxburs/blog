@@ -44,15 +44,15 @@ const Post = ({ post, lastPost, nextPost }: Props) => (
     <ul className={styles.nav}>
       <li>
         {lastPost && (
-          <Link href={`/posts/${lastPost.slug}`}>
-            <a rel="prev">← {lastPost.title}</a>
+          <Link href={`/posts/${lastPost.slug}`} rel="prev">
+            ←{lastPost.title}
           </Link>
         )}
       </li>
       <li>
         {nextPost && (
-          <Link href={`/posts/${nextPost.slug}`}>
-            <a rel="prev">{nextPost.title} →</a>
+          <Link href={`/posts/${nextPost.slug}`} rel="prev">
+            {nextPost.title}→
           </Link>
         )}
       </li>

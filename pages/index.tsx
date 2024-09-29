@@ -33,9 +33,7 @@ const Index: React.FC<Props> = ({ posts }) => (
     {posts.map((post) => (
       <div key={post.slug} className={styles.post}>
         <h3>
-          <Link href={`/posts/${post.slug}`}>
-            <a>{post.title}</a>
-          </Link>
+          <Link href={`/posts/${post.slug}`}>{post.title}</Link>
         </h3>
         <small>
           <DateFormatter dateString={post.date}>{post.date}</DateFormatter>

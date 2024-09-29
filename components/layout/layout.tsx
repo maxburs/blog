@@ -51,8 +51,8 @@ const Meta: React.FC = () => (
 );
 
 const title = (
-  <Link href="/">
-    <a className={styles.link}>Max Burson</a>
+  <Link href="/" className={styles.link}>
+    Max Burson
   </Link>
 );
 
