@@ -1,3 +1,5 @@
+'use server';
+
 import remarkPrismjs from 'gatsby-remark-prismjs';
 import remark from 'remark';
 import html from 'remark-html';
