@@ -18,6 +18,10 @@ body {
 }
 
 :root {
+  /* Should these go on more specific elements? */
+  hyphens: auto;
+  overflow-wrap: break-word;
+
   font-family: var(--merriweather), Georgia, serif;
   line-height: 1.7;
   background-color: var(--white);
