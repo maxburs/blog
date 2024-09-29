@@ -7,3 +7,4 @@
 - Bug: Code font pop-in on blog posts
 - Add light-mode code css variant
 - Cooler icon?
+- Add open graph headers? https://ogp.me/

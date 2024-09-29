@@ -20,6 +20,7 @@
   }
   .main,
   .article,
+  .article > header,
   .markdown {
     & > *:last-child {
       margin-bottom: 0;
@@ -30,13 +31,17 @@
   }
 }
 
+.article > header {
+  margin-bottom: 2.5em;
+}
+
 .title {
   margin-bottom: 0;
 }
 
 .date {
-  margin: 8px 0 32px 0;
   font-size: 0.8em;
+  margin-bottom: 16px;
 }
 
 .nav {
@@ -69,6 +74,11 @@
   & img {
     max-width: calc(100% + 32px);
     margin: 0 -16px;
+  }
+
+  & h1,
+  & h2 {
+    padding-bottom: 0.3em;
   }
 
   /* Shadow prism-okaidia styles */

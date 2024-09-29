@@ -79,8 +79,10 @@ export default async function Post({ params }: RouteProps) {
   return (
     <Layout mainProps={{ className: styles.main }}>
       <article className={styles.article}>
-        <h1 className={styles.title}>{post.title}</h1>
-        <DateFormatter className={styles.date} dateString={post.date} />
+        <header>
+          <h1 className={styles.title}>{post.title}</h1>
+          <DateFormatter className={styles.date} dateString={post.date} />
+        </header>
         <div
           className={styles.markdown}
           dangerouslySetInnerHTML={{ __html: post.content }}
