@@ -107,6 +107,7 @@
   & pre > code[class*='language-'] {
     /* max-width: 80ch; Code should be formatted to 80 characters */
     grid-column: full;
+    max-width: 80ch;
     padding: 1.3em 1.9em;
     box-sizing: content-box;
     display: block;
