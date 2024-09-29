@@ -8,7 +8,9 @@ import { markdownToHtml } from '../lib/markdownToHtml';
 const url = process.env.__URL ?? constants.fallbackUrl;
 
 async function generateFeeds() {
-  const copyright = fs.readFileSync(`${__dirname}/../LICENSE-posts`).toString();
+  const copyright = fs
+    .readFileSync(`${import.meta.dirname}/../LICENSE-posts`)
+    .toString();
 
   const appPosts = getAllPosts();
 
@@ -38,16 +40,24 @@ async function generateFeeds() {
     });
   }
 
-  fs.writeFile(`${__dirname}/../public/rss.xml`, feed.rss2(), (err) => {
-    if (err) {
-      throw err;
-    }
-  });
-  fs.writeFile(`${__dirname}/../public/atom.xml`, feed.atom1(), (err) => {
-    if (err) {
-      throw err;
-    }
-  });
+  fs.writeFile(
+    `${import.meta.dirname}/../public/rss.xml`,
+    feed.rss2(),
+    (err) => {
+      if (err) {
+        throw err;
+      }
+    },
+  );
+  fs.writeFile(
+    `${import.meta.dirname}/../public/atom.xml`,
+    feed.atom1(),
+    (err) => {
+      if (err) {
+        throw err;
+      }
+    },
+  );
 }
 
 generateFeeds();
