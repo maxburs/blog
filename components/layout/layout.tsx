@@ -58,6 +58,7 @@ const title = (
 
 export interface LayoutProps {
   mainProps?: React.HTMLProps<HTMLElement>;
+  children: React.ReactNode;
 }
 
 export const Layout: React.FC<LayoutProps> = ({ children, mainProps }) => {

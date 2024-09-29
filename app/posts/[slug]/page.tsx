@@ -2,13 +2,13 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import * as constants from '../../constants';
+import * as constants from '../../../constants';
 
-import { Layout } from '../../components/layout/layout';
-import { getPostBySlug, getAllPosts, getPostSlugs } from '../../lib/api';
-import { markdownToHtml } from '../../lib/markdownToHtml';
-import type { IPost } from '../../types';
-import { DateFormatter } from '../../components/date-formatter';
+import { Layout } from '../../../components/layout/layout';
+import { getPostBySlug, getAllPosts, getPostSlugs } from '../../../lib/api';
+import { markdownToHtml } from '../../../lib/markdownToHtml';
+import type { IPost } from '../../../types';
+import { DateFormatter } from '../../../components/date-formatter';
 
 import styles from './posts.module.scss';
 import 'prismjs/themes/prism-okaidia.css';
