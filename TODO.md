@@ -1,0 +1,8 @@
+- Update site nav + header
+  - On blog posts, move name under post title + add a "all posts button to the top"
+  - Add a "all posts" button to the bottom
+  - Don't forget about the 404 page
+- Update post list to be a `ul`
+- Move face alongside name on main page. Or get rid of it?
+- Bug: Code font pop-in on blog posts
+- Add light-mode code css variant

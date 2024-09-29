@@ -2,15 +2,15 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import constants from '../../constants.json';
+import * as constants from '../../constants';
 
 import { Layout } from '../../components/layout/layout';
 import { getPostBySlug, getAllPosts, getPostSlugs } from '../../lib/api';
 import { markdownToHtml } from '../../lib/markdownToHtml';
-import { IPost } from '../../types';
+import type { IPost } from '../../types';
 import { DateFormatter } from '../../components/date-formatter';
 
-import style from './style.module.scss';
+import styles from './posts.module.scss';
 import 'prismjs/themes/prism-okaidia.css';
 
 interface Props {
@@ -20,7 +20,7 @@ interface Props {
 }
 
 const Post = ({ post, lastPost, nextPost }: Props) => (
-  <Layout>
+  <Layout mainProps={{ className: styles.main }}>
     <Head>
       <link rel="canonical" href={`https://maxburson.com/posts/${post.slug}`} />
     </Head>
@@ -33,15 +33,15 @@ const Post = ({ post, lastPost, nextPost }: Props) => (
     <Head key="description">
       <meta name="description" content={post.excerpt} />
     </Head>
-    <article>
-      <h1 className={style.title}>{post.title}</h1>
-      <DateFormatter className={style.date} dateString={post.date} />
+    <article className={styles.article}>
+      <h1 className={styles.title}>{post.title}</h1>
+      <DateFormatter className={styles.date} dateString={post.date} />
       <div
-        className={style.markdown}
+        className={styles.markdown}
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </article>
-    <ul className={style.nav}>
+    <ul className={styles.nav}>
       <li>
         {lastPost && (
           <Link href={`/posts/${lastPost.slug}`}>

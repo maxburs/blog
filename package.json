@@ -7,7 +7,7 @@
     "url": "https://github.com/maxburs/blog/issues"
   },
   "engines": {
-    "node": "16.*"
+    "node": "20"
   },
   "homepage": "https://maxburson.com",
   "license": "MIT",
@@ -35,7 +35,7 @@
   "dependencies": {
     "date-fns": "2.10.0",
     "gray-matter": "4.0.2",
-    "next": "latest",
+    "next": "12",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.25.0",
     "react": "^17.0.1",
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@types/jest": "^25.2.2",
-    "@types/node": "^14.14.19",
+    "@types/node": "22",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "feed": "^4.2.1",
@@ -56,5 +56,6 @@
     "prettier": "2.2.1",
     "sass": "^1.32.2",
     "ts-node": "^9.1.1"
-  }
+  },
+  "packageManager": "yarn@4.4.0"
 }

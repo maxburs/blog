@@ -26,10 +26,11 @@ async function seriousBusinessLogic(pickAColor) {
 
 <style>
   .codepen {
+    max-width: 768px;
+    width: 768px;
+    min-width: 0px;
     margin-bottom: 1.5em;
-    margin-left: -16px;
-    margin-right: -16px;
-    width: calc(100% + 32px);
+    display: block;
   }
 </style>
 

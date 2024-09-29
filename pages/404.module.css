@@ -1,0 +1,10 @@
+.main {
+  display: grid;
+  grid-template-rows: 3fr [content] auto 4fr;
+  place-content: center;
+}
+
+.main h1 {
+  grid-area: content;
+  margin: 0;
+}

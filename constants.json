@@ -1,9 +1,0 @@
-{
-  "title": "Max's Blog",
-  "description": "Max Burson's blog where he mostly writes about code.",
-  "fallbackUrl": "https://maxburson.com",
-  "author": {
-    "name": "Maxwell Burson",
-    "email": "maxwellburson@gmail.com"
-  }
-}
