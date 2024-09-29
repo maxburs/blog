@@ -86,8 +86,8 @@
   /* Wraps pre for some reason */
   /* `display: content` not used here because it breaks margin collapse */
   & :global(.gatsby-highlight) {
-    max-width: none;
-    margin: 1em 0;
+    /* max-width: none; */
+    margin: 1em auto;
   }
 
   & code[class*='language-'] {
@@ -116,13 +116,13 @@
   /* [class*="language-"] added to increase specificity */
   & pre > code[class*='language-'] {
     /* max-width: 80ch; Code should be formatted to 80 characters */
-    max-width: 80ch;
+    /* max-width: 80ch; */
     padding: 1.3em 1.9em;
     box-sizing: content-box;
     display: block;
     margin: 0 auto;
     overflow: auto;
     font-size: 0.85rem;
-    border-radius: 8px;
+    border-radius: 6px;
   }
 }
