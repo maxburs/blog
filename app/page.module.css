@@ -4,6 +4,9 @@
   }
   & main {
     grid-column: content;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   }
 }
 
@@ -23,21 +26,25 @@
 }
 
 .post {
-  margin-top: 32px;
+  display: grid;
+  grid-template-rows: [title] auto 2px [date] auto 4px [description] auto;
+  justify-content: left;
 
-  &:first-child {
-    margin-top: 0;
-  }
-  &:last-child {
-    margin-bottom: 0;
-  }
   & h2 {
-    margin-top: 0;
-    margin-bottom: 0.25em;
+    grid-area: title;
     font-size: 1.17em;
   }
 
+  & time {
+    grid-area: date;
+    font-size: smaller;
+  }
+
   & p {
-    margin-top: 0.25em;
+    grid-area: description;
+  }
+
+  & > * {
+    margin: 0;
   }
 }

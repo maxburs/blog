@@ -46,9 +46,7 @@ export default async function Index() {
           <h2>
             <Link href={`/posts/${post.slug}`}>{post.title}</Link>
           </h2>
-          <small>
-            <DateFormatter dateString={post.date} />
-          </small>
+          <DateFormatter dateString={post.date} />
           <p>{post.excerpt}</p>
         </div>
       ))}
