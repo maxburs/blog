@@ -9,7 +9,7 @@ import { markdownToHtml } from '../../../lib/markdownToHtml';
 import type { IPost } from '../../../types';
 import { DateFormatter } from '../../../components/date-formatter';
 
-import styles from './page.module.scss';
+import styles from './page.module.css';
 import 'prismjs/themes/prism-okaidia.css';
 import { notFound } from 'next/navigation';
 

@@ -1,0 +1,118 @@
+.main,
+.article {
+  display: grid;
+  grid-template-columns: inherit;
+  grid-column: full;
+}
+
+@layer layout {
+  .main,
+  .article {
+    & > * {
+      grid-column: content;
+    }
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+    & > *:first-child {
+      margin-top: 0;
+    }
+  }
+  .main,
+  .article,
+  .markdown {
+    & > *:last-child {
+      margin-bottom: 0;
+    }
+    & > *:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.date {
+  margin: 8px 0 32px 0;
+  font-size: 0.8em;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 48px 0 0 0;
+
+  & a {
+    display: block;
+    margin: 8px 0;
+  }
+}
+
+.markdown {
+  grid-column: full;
+
+  --pre-color: oklch(0.27 0.006 var(--brand-hue));
+
+  @layer layout {
+    & > * {
+      max-width: var(--content-width);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  & img {
+    max-width: calc(100% + 32px);
+    margin: 0 -16px;
+  }
+
+  /* Shadow prism-okaidia styles */
+
+  /* Wraps pre for some reason */
+  /* `display: content` not used here because it breaks margin collapse */
+  & :global(.gatsby-highlight) {
+    max-width: none;
+    margin: 1em 0;
+  }
+
+  & code[class*='language-'] {
+    font-family: var(--sf-mono-regular), Consolas, 'Liberation Mono', Menlo,
+      Courier, monospace;
+  }
+
+  /* Non-block code (Single tick `) */
+  & :not(pre) > code[class*='language-'] {
+    background-color: var(--pre-color);
+  }
+
+  & :is(pre[class*='language-'], pre > code[class*='language-']) {
+    padding: 12px 16px;
+    background-color: var(--pre-color);
+  }
+
+  /* With code block */
+
+  & pre:has(code) {
+    display: contents;
+  }
+
+  /* Code block */
+
+  /* [class*="language-"] added to increase specificity */
+  & pre > code[class*='language-'] {
+    /* max-width: 80ch; Code should be formatted to 80 characters */
+    grid-column: full;
+    padding: 1.3em 1.9em;
+    box-sizing: content-box;
+    display: block;
+    margin: 0 auto;
+    overflow: auto;
+    font-size: 0.85rem;
+    border-radius: 8px;
+  }
+}
