@@ -36,7 +36,7 @@ const Index: React.FC<Props> = ({ posts }) => (
           <Link href={`/posts/${post.slug}`}>{post.title}</Link>
         </h3>
         <small>
-          <DateFormatter dateString={post.date}>{post.date}</DateFormatter>
+          <DateFormatter dateString={post.date} />
         </small>
         <p>{post.excerpt}</p>
       </div>

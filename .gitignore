@@ -24,6 +24,7 @@ yarn-error.log*
 
 # build artifacts
 /public/atom.xml
+/public/rss.xml
 /public/json.json
 ## tsc build cache
 *.tsbuildinfo
