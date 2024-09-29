@@ -1,3 +1,8 @@
 # next.js
 /.next
 /public
+/out
+
+/coverage
+
+/.yarn
