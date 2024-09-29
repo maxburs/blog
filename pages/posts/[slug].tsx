@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import constants from '../../constants.json';
+import * as constants from '../../constants';
 
 import { Layout } from '../../components/layout/layout';
 import { getPostBySlug, getAllPosts, getPostSlugs } from '../../lib/api';

@@ -1,7 +1,7 @@
 import { Feed } from 'feed';
-import fs from 'fs';
+import fs from 'node:fs';
 
-import constants from '../constants.json';
+import * as constants from '../constants';
 import { getAllPosts } from '../lib/api';
 import { markdownToHtml } from '../lib/markdownToHtml';
 

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import styles from './layout.module.css';
 import { ThemePicker } from './theme-picker';
-import constants from '../../constants.json';
+import * as constants from '../../constants';
 
 const Meta: React.FC = () => (
   <>
