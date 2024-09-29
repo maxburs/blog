@@ -23,9 +23,10 @@
   margin-top: 32px;
 }
 
-.post h3 {
+.post h2 {
   margin-top: 0;
   margin-bottom: 0.25em;
+  font-size: 1.17em;
 }
 
 .post p {
