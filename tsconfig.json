@@ -18,8 +18,13 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "typeRoots": ["./node_modules/@types", "./@types"],
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "next.config.js"]
+  "include": ["**/*.ts", "**/*.tsx", "next.config.js", ".next/types/**/*.ts"]
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import styles from './layout.module.css';
@@ -57,19 +56,20 @@ const title = (
 );
 
 export interface LayoutProps {
+  root?: boolean;
   mainProps?: React.HTMLProps<HTMLElement>;
   children: React.ReactNode;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, mainProps }) => {
-  const router = useRouter();
-
+export const Layout: React.FC<LayoutProps> = ({
+  children,
+  mainProps,
+  root,
+}) => {
   return (
     <div className={styles.layout}>
       <Meta />
-      <header>
-        {router.pathname === '/' ? <h1>{title}</h1> : <h3>{title} </h3>}
-      </header>
+      <header>{root ? <h1>{title}</h1> : <h3>{title} </h3>}</header>
       <main {...mainProps}>{children}</main>
       <footer className={styles.footer}>
         <span>
