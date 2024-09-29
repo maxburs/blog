@@ -70,6 +70,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${merriweather.variable} ${montserrat.variable} ${sfMonoRegular.variable}`}
+      // Stop NextJs from complaining about the data-theme attribute we're
+      // adding on the client
+      suppressHydrationWarning
     >
       <body>
         <script
