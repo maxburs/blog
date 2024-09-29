@@ -21,22 +21,22 @@ export const metadata: Metadata = {
 const merriweather = localFont({
   src: [
     {
-      path: '../public/fonts/merriweather/merriweather-latin-400.woff2',
+      path: '../fonts/merriweather/merriweather-latin-400.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../public/fonts/merriweather/merriweather-latin-400italic.woff2',
+      path: '../fonts/merriweather/merriweather-latin-400italic.woff2',
       weight: '400',
       style: 'italic',
     },
     {
-      path: '../public/fonts/merriweather/merriweather-latin-700.woff2',
+      path: '../fonts/merriweather/merriweather-latin-700.woff2',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '../public/fonts/merriweather/merriweather-latin-700italic.woff2',
+      path: '../fonts/merriweather/merriweather-latin-700italic.woff2',
       weight: '700',
       style: 'italic',
     },
@@ -45,14 +45,14 @@ const merriweather = localFont({
 });
 
 const montserrat = localFont({
-  src: '../public/fonts/montserrat/montserrat-latin-700.woff2',
+  src: '../fonts/montserrat/montserrat-latin-700.woff2',
   weight: '700',
   style: 'bold',
   variable: '--montserrat',
 });
 
 const sfMonoRegular = localFont({
-  src: '../public/fonts/SFMono-Regular.ttf',
+  src: '../fonts/SFMono-Regular.ttf',
   variable: '--sf-mono-regular',
 });
 
