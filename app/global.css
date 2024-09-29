@@ -63,7 +63,7 @@ html[data-theme='dark'] {
   h6 {
     font-family: var(--montserrat), sans-serif;
     line-height: 1.7;
-    margin-top: 2rem;
+    margin-top: 2em;
     margin-bottom: 0.25em;
     color: var(--black);
   }
