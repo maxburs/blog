@@ -42,13 +42,15 @@ export default async function Index() {
       }
     >
       {posts.map((post) => (
-        <div key={post.slug} className={styles.post}>
-          <h2>
-            <Link href={`/posts/${post.slug}`}>{post.title}</Link>
-          </h2>
+        <Link
+          href={`/posts/${post.slug}`}
+          className={styles.post}
+          key={post.slug}
+        >
+          <h2>{post.title}</h2>
           <DateFormatter dateString={post.date} />
           <p>{post.excerpt}</p>
-        </div>
+        </Link>
       ))}
     </Layout>
   );

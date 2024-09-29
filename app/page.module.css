@@ -1,4 +1,6 @@
 .layout {
+  --content-width: 48ch;
+
   & header {
     margin-bottom: 48px;
   }
@@ -13,8 +15,7 @@
 .bio {
   display: flex;
   & p {
-    margin-top: 0;
-    margin-left: 16px;
+    margin: 0 0 0 16px;
   }
 }
 
@@ -30,14 +31,21 @@
   grid-template-rows: [title] auto 2px [date] auto 4px [description] auto;
   justify-content: left;
 
+  color: var(--black);
+
   & h2 {
     grid-area: title;
-    font-size: 1.17em;
+    font-size: 1.4rem;
+  }
+
+  & time,
+  & p {
+    font-size: smaller;
+    color: color-mix(in oklab, var(--black), var(--white) 15%);
   }
 
   & time {
     grid-area: date;
-    font-size: smaller;
   }
 
   & p {
