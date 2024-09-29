@@ -20,35 +20,36 @@ body {
 :root {
   font-family: var(--merriweather), Georgia, serif;
   line-height: 1.7;
+  background-color: var(--white);
+  color: var(--black);
 
   --brand-hue: 108;
   --brand2-hue: calc(360 - var(--brand-hue));
-
-  background-color: var(--white);
-  color: var(--black);
-  --gray300: color-mix(in oklch, var(--white), var(--black) 80%);
-  --content-width: 612px;
 }
 
 /* Light color scheme */
 :root {
+  color-scheme: light;
+
+  --gray300: color-mix(in oklch, var(--white), var(--black) 80%);
+  --content-width: 612px;
   --brand: oklch(0.81 0.2 var(--brand-hue));
   --black: color-mix(in oklch, var(--brand) 28.5%, black);
   --white: color-mix(in oklch, var(--brand) 13%, white);
   --link-color: oklch(0.55 0.35 var(--brand2-hue));
-  color-scheme: light;
 }
 
 /* Dark color scheme */
 html[data-theme='dark'] {
   @media (prefers-color-scheme: dark) {
     :is(html:not([data-theme='light']), &) {
+      color-scheme: dark;
+
       --black: color-mix(in oklch, var(--brand) 20%, white);
       --white: oklch(0.225 0.01 var(--brand-hue));
       --link-color: oklch(0.75 0.15 var(--brand2-hue));
       --brand: oklch(0.81 0.2 var(--brand-hue));
       --brand2: oklch(1 1 var(--brand2-hue));
-      color-scheme: dark;
     }
   }
 }
