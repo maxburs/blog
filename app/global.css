@@ -21,6 +21,7 @@ body {
   /* Should these go on more specific elements? */
   hyphens: auto;
   overflow-wrap: break-word;
+  text-wrap: pretty;
 
   font-family: var(--merriweather), Georgia, serif;
   line-height: 1.7;
