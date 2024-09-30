@@ -17,6 +17,9 @@
 
     margin-bottom: 48px;
     & h1 {
+      /* Once "leading-trim" is available, use it here.
+      https://caniuse.com/?search=leading-trim
+      https://css-tricks.com/leading-trim-the-future-of-digital-typesetting/ */
       grid-area: title;
     }
     & p {
