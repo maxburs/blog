@@ -56,8 +56,6 @@
     }
   }
 
-  color: var(--black);
-
   & h2 {
     grid-area: title;
     font-size: 1.4rem;
