@@ -23,21 +23,19 @@ export default async function Index() {
       header={
         <header>
           <h1>{constants.title}</h1>
-          <div className={styles.bio}>
-            <img
-              alt="Picture of the author"
-              src="/me/50.jpg"
-              srcSet="/me/50.jpg 50w, /me/100.jpg 100w"
-              className={styles.avatar}
-              width={50}
-              height={50}
-              sizes="50px"
-            />
-            <p>
-              <strong>{constants.author.name}</strong> writes about web
-              development and TypeScript
-            </p>
-          </div>
+          <img
+            alt="Picture of the author"
+            src="/me/50.jpg"
+            srcSet="/me/50.jpg 50w, /me/100.jpg 100w"
+            className={styles.avatar}
+            width={50}
+            height={50}
+            sizes="50px"
+          />
+          <p>
+            <strong>{constants.author.name}</strong> writes about web
+            development and TypeScript
+          </p>
         </header>
       }
     >
