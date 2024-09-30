@@ -15,7 +15,7 @@
       margin: 0;
     }
 
-    margin-bottom: 32px;
+    margin-bottom: 48px;
     & h1 {
       grid-area: title;
     }
