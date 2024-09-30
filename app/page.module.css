@@ -52,7 +52,7 @@
 
     & h2 {
       text-decoration: underline;
-      color: color-mix(in oklab, var(--black), var(--white) 15%);
+      color: color-mix(in oklab, var(--header), var(--white) 20%);
     }
   }
 
