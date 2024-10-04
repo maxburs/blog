@@ -32,10 +32,7 @@ export default async function Index() {
             height={50}
             sizes="50px"
           />
-          <p>
-            <strong>{constants.author.name}</strong> writes about web
-            development and TypeScript
-          </p>
+          <p>Writing mostly on software development</p>
         </header>
       }
     >
