@@ -28,8 +28,8 @@ body {
   background-color: var(--white);
   color: var(--black);
 
-  --brand-hue: 108;
-  --brand2-hue: calc(360 - var(--brand-hue));
+  --brand-hue: 65;
+  --brand2-hue: calc(180 + var(--brand-hue));
 
   /* Light color scheme */
   color-scheme: light;
