@@ -11,7 +11,7 @@
 
   .layout > header {
     grid-area: header / content;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 
   .headerLink {
