@@ -46,6 +46,7 @@
   display: grid;
   grid-template-rows: [title] auto 2px [date] auto 4px [description] auto;
   justify-content: left;
+  text-decoration: none;
 
   &:hover {
     text-decoration: none;

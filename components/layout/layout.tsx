@@ -33,8 +33,8 @@ export const Layout: React.FC<LayoutProps> = ({
       <main {...mainProps}>{children}</main>
       <footer className={styles.footer}>
         <span>
-          © {new Date().toLocaleDateString(undefined, { year: 'numeric' })} /{' '}
-          <a href="https://www.github.com/maxburs">GitHub</a> /{' '}
+          © {new Date().toLocaleDateString(undefined, { year: 'numeric' })} •{' '}
+          <a href="https://www.github.com/maxburs">GitHub</a> •{' '}
           <a rel="alternate" type="application/rss+xml" href="/rss.xml">
             RSS
           </a>
