@@ -44,7 +44,7 @@
   margin-bottom: 16px;
 }
 
-.nav {
+/* .nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -57,10 +57,14 @@
     margin: 8px 0;
   }
 
-  /* Right-align right nav when wrapping */
+   Right-align right nav when wrapping
   & li:nth-child(2) {
     margin-left: auto;
   }
+} */
+
+.allPostsLink {
+  margin: 16px 0 32px 0;
 }
 
 .markdown {
