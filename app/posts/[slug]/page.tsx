@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import type { Metadata, ResolvingMetadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import * as constants from '../../../constants';
-
 import { Layout } from '../../../components/layout/layout';
 import { getPostBySlug, getPostSlugs } from '../../../lib/api';
 import { markdownToHtml } from '../../../lib/markdownToHtml';
@@ -10,9 +10,10 @@ import type { IPost } from '../../../types';
 import { DateFormatter } from '../../../components/date-formatter';
 
 import styles from './page.module.css';
+
+// https://github.com/PrismJS/prism-themes
 import './code-dark.scss';
 import './code-light.css';
-import { notFound } from 'next/navigation';
 
 // https://github.com/vercel/next.js/issues/56253
 // export const dynamicParams = false;
