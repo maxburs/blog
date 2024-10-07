@@ -17,6 +17,14 @@ body {
   height: 100%;
 }
 
+/*
+Respect system front size on ios devices.
+https://frontendmasters.com/blog/letting-ios-text-size-setting-affect-font-size-on-the-web/
+*/
+html {
+  font-size: 1em;
+}
+
 :root {
   /* Should these go on more specific elements? */
   hyphens: auto;
