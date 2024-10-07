@@ -42,6 +42,11 @@ body {
   --white: color-mix(in oklch, var(--brand) 8.5%, white);
   /* --white: oklch(0.95 0.04 var(--brand-hue)); */
   --link-color: oklch(0.55 0.35 var(--brand2-hue));
+  grid-column: full;
+  --pre-color: light-dark(
+    oklch(0.996 0.003 var(--brand-hue)),
+    oklch(0.27 0.006 var(--brand-hue))
+  );
 }
 
 /* Dark color scheme */

@@ -10,7 +10,8 @@ import type { IPost } from '../../../types';
 import { DateFormatter } from '../../../components/date-formatter';
 
 import styles from './page.module.css';
-import 'prismjs/themes/prism-okaidia.css';
+import './code-dark.scss';
+import './code-light.css';
 import { notFound } from 'next/navigation';
 
 // https://github.com/vercel/next.js/issues/56253

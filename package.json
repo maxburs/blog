@@ -45,6 +45,7 @@
     "remark": "15",
     "remark-gfm": "^4.0.0",
     "remark-html": "16",
+    "sass": "^1.79.4",
     "typescript": "latest"
   },
   "devDependencies": {

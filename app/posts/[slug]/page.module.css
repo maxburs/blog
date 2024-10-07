@@ -51,8 +51,6 @@
 .markdown {
   grid-column: full;
 
-  --pre-color: oklch(0.27 0.006 var(--brand-hue));
-
   @layer layout {
     & > * {
       max-width: var(--content-width);
@@ -77,7 +75,11 @@
   & iframe {
     max-width: 100%;
   }
+}
 
+/* Code */
+
+.markdown {
   /* Shadow prism-okaidia styles */
 
   /* Wraps pre for some reason */
@@ -87,19 +89,25 @@
     margin: 1em auto;
   }
 
+  & pre,
+  & code[class*='language-'] {
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.5;
+    tab-size: 4;
+    hyphens: none;
+  }
+
   & code[class*='language-'] {
     font-family: var(--sf-mono-regular), Consolas, 'Liberation Mono', Menlo,
       Courier, monospace;
   }
 
-  /* Non-block code (Single tick `) */
-  & :not(pre) > code[class*='language-'] {
-    background-color: var(--pre-color);
-  }
-
   & :is(pre[class*='language-'], pre > code[class*='language-']) {
     padding: 12px 16px;
-    background-color: var(--pre-color);
   }
 
   /* With code block */
