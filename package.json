@@ -43,6 +43,7 @@
     "react": "18",
     "react-dom": "18",
     "remark": "15",
+    "remark-gfm": "^4.0.0",
     "remark-html": "16",
     "typescript": "latest"
   },
