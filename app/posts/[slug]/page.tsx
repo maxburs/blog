@@ -20,32 +20,14 @@ export async function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
 }
 
-interface PageData {
-  post: IPost;
-  // nextPost: null | Pick<IPost, 'slug' | 'title'>;
-  // lastPost: null | Pick<IPost, 'slug' | 'title'>;
-}
-
-async function getPageData(slug: string): Promise<PageData> {
+async function getPost(slug: string): Promise<IPost> {
   const post = getPostBySlug(slug);
   if (!post) {
     throw notFound();
   }
   const content = await markdownToHtml(post.content);
 
-  // const allPosts = getAllPosts();
-  // const index = allPosts.findIndex((p) => p.slug == post.slug);
-  // if (index === -1) {
-  //   throw new Error();
-  // }
-  // const lastPost = allPosts[index - 1] ?? null;
-  // const nextPost = allPosts[index + 1] ?? null;
-
-  return {
-    post: { ...post, content },
-    // lastPost: lastPost && { slug: lastPost.slug, title: lastPost.title },
-    // nextPost: nextPost && { slug: nextPost.slug, title: nextPost.title },
-  };
+  return { ...post, content };
 }
 
 interface RouteProps {
@@ -74,7 +56,7 @@ export async function generateMetadata(
 }
 
 export default async function Post({ params }: RouteProps) {
-  const { post /* , lastPost, nextPost */ } = await getPageData(params.slug);
+  const post = await getPost(params.slug);
 
   return (
     <Layout mainProps={{ className: styles.main }}>

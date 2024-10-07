@@ -45,7 +45,6 @@ export function getPostBySlug(slug: string): undefined | IPost {
       return getPostByFileName(fileName);
     }
   }
-  console.log('---------', slug);
   return;
 }
 
