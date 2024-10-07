@@ -42,8 +42,8 @@
     "prismjs": "^1.25.0",
     "react": "18",
     "react-dom": "18",
-    "remark": "^13.0.0",
-    "remark-html": "^13.0.2",
+    "remark": "15",
+    "remark-html": "16",
     "typescript": "latest"
   },
   "devDependencies": {
@@ -55,7 +55,7 @@
     "@types/react": "18",
     "@types/react-dom": "18",
     "feed": "^4.2.1",
-    "gatsby-remark-prismjs": "^3.10.0",
+    "gatsby-remark-prismjs": "7",
     "husky": "9",
     "lint-staged": "15",
     "prettier": "3"
