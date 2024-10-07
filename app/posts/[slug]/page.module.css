@@ -44,25 +44,6 @@
   margin-bottom: 16px;
 }
 
-/* .nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-  margin: 48px 0 0 0;
-
-  & a {
-    display: block;
-    margin: 8px 0;
-  }
-
-   Right-align right nav when wrapping
-  & li:nth-child(2) {
-    margin-left: auto;
-  }
-} */
-
 .allPostsLink {
   margin: 16px 0 32px 0;
 }
@@ -91,6 +72,10 @@
   & h1,
   & h2 {
     padding-bottom: 0.3em;
+  }
+
+  & iframe {
+    max-width: 100%;
   }
 
   /* Shadow prism-okaidia styles */
