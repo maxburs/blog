@@ -5,12 +5,22 @@ import type { IPost } from '../types';
 
 const postsDirectory = join(process.cwd(), '_posts');
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory).map((s) => s.replace(/\.md$/, ''));
+function fileNameToSlug(fileName: string) {
+  const res = /^\d{4}-\d\d-\d\d (.+)\.md$/.exec(fileName);
+  if (!res) {
+    throw new Error(
+      `Invalid post name: ${fileName}. Should match 'yyyy-mm-dd title.md'`,
+    );
+  }
+  return res[1];
 }
 
-export function getPostBySlug(slug: string): undefined | IPost {
-  const fullPath = join(postsDirectory, `${slug}.md`);
+function postsDir() {
+  return fs.readdirSync(postsDirectory);
+}
+
+function getPostByFileName(fileName: string): undefined | IPost {
+  const fullPath = join(postsDirectory, fileName);
   let fileContents: string;
   try {
     fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -22,13 +32,26 @@ export function getPostBySlug(slug: string): undefined | IPost {
   }
   const { data, content } = matter(fileContents);
 
-  return { ...data, content, slug } as IPost;
+  return { ...data, content, slug: fileNameToSlug(fileName) } as IPost;
+}
+
+export function getPostSlugs() {
+  return postsDir().map((s) => fileNameToSlug(s));
+}
+
+export function getPostBySlug(slug: string): undefined | IPost {
+  for (const fileName of postsDir()) {
+    if (fileNameToSlug(fileName) === slug) {
+      return getPostByFileName(fileName);
+    }
+  }
+  console.log('---------', slug);
+  return;
 }
 
 export function getAllPosts(): IPost[] {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug)!)
+  const posts = postsDir()
+    .map((fileName) => getPostByFileName(fileName)!)
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 
