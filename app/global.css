@@ -119,6 +119,7 @@ html[data-theme='dark'] {
 
   a {
     color: var(--link-color);
+    text-underline-offset: 0.125em;
   }
 
   a:hover {
@@ -154,6 +155,6 @@ html[data-theme='dark'] {
   }
 
   ::selection {
-    background-color: color-mix(in oklab, var(--brand), var(--white) 30%);
+    background-color: color-mix(in oklab, var(--brand), var(--white) 50%);
   }
 }
