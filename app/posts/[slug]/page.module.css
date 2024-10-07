@@ -80,9 +80,12 @@
     }
   }
 
+  & p:has(img) {
+    max-width: calc(var(--content-width) + 32px);
+  }
+
   & img {
-    max-width: calc(100% + 32px);
-    margin: 0 -16px;
+    max-width: 100%;
   }
 
   & h1,
