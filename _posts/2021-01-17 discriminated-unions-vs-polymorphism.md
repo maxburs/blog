@@ -91,7 +91,7 @@ class Human implements Animal {
 - Naturally organisms logic near type definitions. Because of this:
   - Tests naturally become written around `Animal`, and its functions.
   - Harder to delete/detect unused code
-  - When code splitting, more unused methods will be included in bundles ([1)]()
+  - When code splitting, more unused methods will be included in bundles [^1]
 - Allows for easy dependency injection
 
 ### Possible file layout
@@ -148,4 +148,4 @@ Notes
 
 - Both patterns work fine with both mutable and functional styles. Don't sleep on using classes just because you're writing functionally.
 
-(1): date-fns being slimmer than moment.js is a great example of this
+[^1]: date-fns being slimmer than moment.js is a great example of this
