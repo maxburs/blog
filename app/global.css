@@ -1,28 +1,4 @@
-/* Reset */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Styles */
-
-body {
-  margin: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
 :root {
-  /* Should these go on more specific elements? */
-  hyphens: auto;
-  overflow-wrap: break-word;
-  text-wrap: pretty;
-
   font-family: var(--merriweather), Georgia, serif;
   line-height: 1.7;
   background-color: var(--white);
