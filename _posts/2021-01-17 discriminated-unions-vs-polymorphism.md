@@ -41,7 +41,7 @@ export function speak(animal: Animal) {
 - Logic for each variant lives alongside similar logic for other variants
 - Naturally organizes functions near their consumers. Because of this:
   - `speak` is more likely it will get deleted when it is no longer used.
-  - When code splitting, only required functions are be included (1)
+  - When code splitting, only required functions are be included [^1]
 - Because `Animal` doesn't control its own data, we likely won't be organizing many tests around `Animal`. Instead, many test will be against individual functions, or against callers of those functions.
 
 ### Possible file layout
@@ -93,6 +93,8 @@ class Human implements Animal {
   - Harder to delete/detect unused code
   - When code splitting, more unused methods will be included in bundles [^1]
 - Allows for easy dependency injection
+
+[^1]: date-fns being slimmer than moment.js is a great example of this
 
 ### Possible file layout
 
@@ -147,5 +149,3 @@ export type Animal = Sheep | Cat | Human;
 Notes
 
 - Both patterns work fine with both mutable and functional styles. Don't sleep on using classes just because you're writing functionally.
-
-[^1]: date-fns being slimmer than moment.js is a great example of this
