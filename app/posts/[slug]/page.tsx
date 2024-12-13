@@ -61,7 +61,7 @@ export default async function Post({ params }: RouteProps) {
   const post = await getPost(params.slug);
 
   return (
-    <Layout mainProps={{ className: styles.main }}>
+    <Layout mainProps={{ className: styles.main }} className={styles.layout}>
       <article className={styles.article}>
         <header>
           <h1 className={styles.title}>{post.title}</h1>

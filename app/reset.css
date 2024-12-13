@@ -1,5 +1,7 @@
 /*
-  Inspiration: https://www.joshwcomeau.com/css/custom-css-reset/
+  Inspiration: 
+  - https://www.joshwcomeau.com/css/custom-css-reset/
+  - https://chriscoyier.net/2023/10/03/being-picky-about-a-css-reset-for-fun-pleasure/
 */
 
 @layer reset {
@@ -17,6 +19,14 @@
     hyphens: auto;
     overflow-wrap: break-word;
     text-wrap: pretty;
+
+    /*
+      Fix Mobile Safari adjusting the front size in landscape 
+      https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/
+    */
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
   }
 
   img,
@@ -46,10 +56,6 @@
 }
 
 @layer page-layout {
-  body {
-    margin: 0;
-  }
-
   html,
   body {
     height: 100%;

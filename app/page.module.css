@@ -45,9 +45,6 @@
   flex: 0 0 auto;
   width: 48px;
   height: 48px;
-  filter: sepia(1)
-    hue-rotate(calc((var(--brand2-hue) - var(--sepia-hue)) * 1deg))
-    saturate(0.7) brightness(1);
 }
 
 .post {

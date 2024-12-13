@@ -133,4 +133,8 @@ html[data-theme='dark'] {
   ::selection {
     background-color: color-mix(in oklab, var(--brand), var(--white) 50%);
   }
+
+  ul {
+    padding-inline-start: 2em;
+  }
 }

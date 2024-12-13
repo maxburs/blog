@@ -1,3 +1,8 @@
+.layout {
+  --content-width: 768px;
+  --main-width: 512px;
+}
+
 .main,
 .article {
   display: grid;
@@ -33,6 +38,7 @@
 
 .article > header {
   margin-bottom: 1.5em;
+  max-width: var(--main-width);
 }
 
 .title {
@@ -49,13 +55,11 @@
 }
 
 .markdown {
-  grid-column: full;
+  grid-column: content;
 
   @layer layout {
     & > * {
-      max-width: var(--content-width);
-      margin-left: auto;
-      margin-right: auto;
+      max-width: var(--main-width);
     }
   }
 
@@ -85,8 +89,13 @@
   /* Wraps pre for some reason */
   /* `display: content` not used here because it breaks margin collapse */
   & :global(.gatsby-highlight) {
-    /* max-width: none; */
-    margin: 1em auto;
+    max-width: max-content;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    /* Hack until I can figure out how to make the scrollbar appear on `code` again */
+    overflow: auto;
+    border-radius: 6px;
   }
 
   & pre,
@@ -97,7 +106,7 @@
     word-spacing: normal;
     word-break: normal;
     line-height: 1.5;
-    tab-size: 4;
+    tab-size: 2;
     hyphens: none;
   }
 
@@ -120,14 +129,14 @@
 
   /* [class*="language-"] added to increase specificity */
   & pre > code[class*='language-'] {
-    /* max-width: 80ch; Code should be formatted to 80 characters */
-    /* max-width: 80ch; */
-    padding: 1.3em 1.9em;
+    /* Code should be formatted to 80 characters */
+    width: 80ch;
+    padding: 1em 1.3em;
     box-sizing: content-box;
     display: block;
     margin: 0 auto;
     overflow: auto;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     border-radius: 6px;
   }
 }
