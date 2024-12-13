@@ -39,8 +39,6 @@
 }
 
 .avatar {
-  --sepia-hue: 30;
-
   grid-area: avatar;
   flex: 0 0 auto;
   width: 48px;
@@ -64,7 +62,7 @@
 
   & h2 {
     grid-area: title;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   & time,

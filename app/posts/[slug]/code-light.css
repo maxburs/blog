@@ -34,7 +34,10 @@ code[class*='language-'] ::selection {
   background: #c1def1;
 }
 
-.token.comment,
+.token.comment {
+  color: #008000;
+}
+
 .token.prolog,
 .token.doctype,
 .token.cdata {
