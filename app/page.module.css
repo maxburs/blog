@@ -15,7 +15,8 @@
       margin: 0;
     }
 
-    margin-bottom: 48px;
+    margin-bottom: 42px;
+
     & h1 {
       /* Once "leading-trim" is available, use it here.
       https://caniuse.com/?search=leading-trim
@@ -38,11 +39,15 @@
 }
 
 .avatar {
+  --sepia-hue: 30;
+
   grid-area: avatar;
-  border-radius: 50%;
   flex: 0 0 auto;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
+  filter: sepia(1)
+    hue-rotate(calc((var(--brand2-hue) - var(--sepia-hue)) * 1deg))
+    saturate(0.7) brightness(1);
 }
 
 .post {
@@ -62,7 +67,7 @@
 
   & h2 {
     grid-area: title;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
   }
 
   & time,
