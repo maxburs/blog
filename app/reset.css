@@ -29,6 +29,14 @@
     text-size-adjust: none;
   }
 
+  html {
+    /*
+      Respect IOS font size setting
+      https://frontendmasters.com/blog/letting-ios-text-size-setting-affect-font-size-on-the-web/
+    */
+    font-size: 1em;
+  }
+
   img,
   picture,
   video,
