@@ -36,7 +36,7 @@
 
       https://frontendmasters.com/blog/letting-ios-text-size-setting-affect-font-size-on-the-web/
     */
-    font: -apple-system-body;
+    /* font: -apple-system-body; */
 
     /*
       Respect IOS font size setting. _Must_ go after `font: -apple-system-body;` that setting will cause font-size to be different on safari
