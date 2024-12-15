@@ -31,19 +31,19 @@
 
   html {
     /*
-      Respect IOS font size setting
-
-      https://frontendmasters.com/blog/letting-ios-text-size-setting-affect-font-size-on-the-web/
-    */
-    font-size: 1em;
-
-    /*
       If supported, inherits the iOS font settings. As of writing, this means
       using the user bold setting.
 
       https://frontendmasters.com/blog/letting-ios-text-size-setting-affect-font-size-on-the-web/
     */
     font: -apple-system-body;
+
+    /*
+      Respect IOS font size setting. _Must_ go after `font: -apple-system-body;` that setting will cause font-size to be different on safari
+
+      https://frontendmasters.com/blog/letting-ios-text-size-setting-affect-font-size-on-the-web/
+    */
+    font-size: 1em;
   }
 
   img,
