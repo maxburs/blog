@@ -135,7 +135,7 @@
     box-sizing: content-box;
     display: block;
     margin: 0 auto;
-    width: max-content;
+    overflow: auto;
     font-size: 0.88rem;
     border-radius: 6px;
   }
