@@ -96,6 +96,7 @@
     /* Hack until I can figure out how to make the scrollbar appear on `code` again */
     overflow: auto;
     border-radius: 6px;
+    display: flex;
   }
 
   & pre,
@@ -131,6 +132,7 @@
   & pre > code[class*='language-'] {
     /* Code should be formatted to 80 characters */
     width: 80ch;
+    flex: 1 1 auto;
     padding: 1em 1.3em;
     box-sizing: content-box;
     display: block;
