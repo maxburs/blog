@@ -22,7 +22,6 @@
   pre,
   code {
     background-color: var(--pre-color);
-    overflow: visible;
   }
 
   :not(pre) > code[class*='language-'] {
