@@ -100,7 +100,6 @@
 
   & pre,
   & code[class*='language-'] {
-    overflow: visible;
     direction: ltr;
     text-align: left;
     white-space: pre;
@@ -131,6 +130,7 @@
   /* [class*="language-"] added to increase specificity */
   & pre > code[class*='language-'] {
     /* Code should be formatted to 80 characters */
+    overflow: visible;
     width: 80ch;
     padding: 1em 1.3em;
     box-sizing: content-box;
