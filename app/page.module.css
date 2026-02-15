@@ -22,7 +22,7 @@
       https://caniuse.com/?search=leading-trim
       https://css-tricks.com/leading-trim-the-future-of-digital-typesetting/ */
       grid-area: title;
-      font-size: 1.3em;
+      font-size: 1.8em;
     }
     & p {
       grid-area: bio;
