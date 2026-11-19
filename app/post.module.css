@@ -1,3 +1,6 @@
+/* Repeated in each stylesheet that uses layers, since any of them can load first. */
+@layer reset, page-layout, default-style, layout;
+
 .layout {
   --content-width: 768px;
   --main-width: 576px;

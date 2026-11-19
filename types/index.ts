@@ -1,9 +1,14 @@
-export interface IPost {
+export interface PostSummary {
   slug: string;
   title: string;
+  /** `yyyy-mm-dd` */
   date: string;
   excerpt: string;
   tags: string;
+}
+
+export interface IPost extends PostSummary {
+  /** Markdown */
   content: string;
 }
 
