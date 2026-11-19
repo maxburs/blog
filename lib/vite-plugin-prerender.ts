@@ -25,6 +25,9 @@ export function prerenderPlugin(getPages: () => PrerenderPage[]): Plugin {
       order: 'post',
       async handler(builder) {
         const { client, ssr } = builder.environments;
+        // When a post-order `buildApp` hook like this one exists, Solid's Vite
+        // plugin builds only `client` and leaves the other environments to it,
+        // so the server bundle is built here.
         for (const environment of [client, ssr]) {
           if (!environment.isBuilt) {
             await builder.build(environment);
