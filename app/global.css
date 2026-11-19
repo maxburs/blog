@@ -1,4 +1,5 @@
-@layer reset, default-style;
+/* Declared in every layered stylesheet so layer priority doesn't depend on CSS load order. */
+@layer reset, page-layout, default-style, layout;
 
 :root {
   font-family: var(--merriweather), Georgia, serif;

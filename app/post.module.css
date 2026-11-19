@@ -1,4 +1,4 @@
-/* Repeated in each stylesheet that uses layers, since any of them can load first. */
+/* Declared in every layered stylesheet so layer priority doesn't depend on CSS load order. */
 @layer reset, page-layout, default-style, layout;
 
 .layout {

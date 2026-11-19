@@ -9,13 +9,13 @@ const postSummaryQuery = 'post-summary';
 const postHtmlQuery = 'post-html';
 
 /**
- * Compiles posts in `_posts/` at build time, so the site needs no server.
+ * Compiles posts in `_posts/` into JS modules, so the site needs no server.
  * Import a post with `?post-summary` for its front matter, or `?post-html`
  * for its rendered body. They're separate modules so pages listing posts
  * don't bundle every post's body.
  */
 export function postsPlugin(): Plugin {
-  // Vite module IDs always use forward slashes.
+  // Vite module IDs use forward slashes, even on Windows.
   const directory = normalizePath(postsDirectory);
 
   return {

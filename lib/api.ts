@@ -43,15 +43,6 @@ export function getPostSlugs() {
   return postsDir().map((s) => fileNameToSlug(s));
 }
 
-export function getPostBySlug(slug: string): undefined | IPost {
-  for (const fileName of postsDir()) {
-    if (fileNameToSlug(fileName) === slug) {
-      return getPostByFileName(fileName);
-    }
-  }
-  return;
-}
-
 export function getAllPosts(): IPost[] {
   const posts = postsDir()
     .map((fileName) => getPostByFileName(fileName)!)

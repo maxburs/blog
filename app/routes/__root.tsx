@@ -44,7 +44,8 @@ export const Route = createRootRoute({
     ],
     scripts: [
       {
-        // Runs before first paint so the saved theme doesn't flash in.
+        // Runs before first paint, so the page doesn't flash the default
+        // theme before the saved one.
         children:
           "document.documentElement.dataset.theme = localStorage.getItem('theme') || 'auto';",
       },

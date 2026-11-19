@@ -4,7 +4,8 @@ import { isThemeState, type ThemeState } from '../../types';
 import style from './theme-picker.module.css';
 
 export function ThemePicker() {
-  // Stays disabled until hydration, since it can't do anything without JS.
+  // Disabled until hydration: the server can't know the saved theme, and the
+  // picker can't do anything without JS.
   const [theme, setTheme] = createSignal<ThemeState | 'disabled'>('disabled');
   onSettled(() => {
     const saved = document.documentElement.dataset.theme;

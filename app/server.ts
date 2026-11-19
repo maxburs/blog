@@ -1,10 +1,10 @@
 import handler, { createServerEntry } from '@tanstack/solid-start/server-entry';
 
 /**
- * The site is deployed as static files, so this server only runs while
- * prerendering. Prerendering rejects non-2xx responses, so `/404` is answered
- * with a 200 to let it be written to `404.html`, which Netlify serves for
- * unknown paths.
+ * The site is deployed as static files, so this server only runs locally and
+ * while prerendering. The prerenderer rejects non-2xx responses, so `/404`
+ * returns a 200 to let it write `404.html`, which Netlify serves for unknown
+ * paths.
  */
 export default createServerEntry({
   async fetch(request: Request) {

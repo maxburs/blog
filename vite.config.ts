@@ -25,14 +25,14 @@ export default defineConfig({
         ...getPostSlugs().map((slug) => ({ path: `/posts/${slug}` })),
       ],
     }),
-    // Must come after `tanstackStart()`.
+    // TanStack Start's setup docs require this after `tanstackStart()`.
     solid({ ssr: true }),
   ],
   build: {
     rolldownOptions: {
       output: {
-        // Post chunks are named after files like `2021-01-02 title.md`; keep
-        // spaces out of asset URLs.
+        // Post chunks are named after files like `2021-01-02 slug.md`; keep
+        // the space out of asset URLs.
         sanitizeFileName: (name) => name.replace(/[^\w.-]/g, '-'),
       },
     },
