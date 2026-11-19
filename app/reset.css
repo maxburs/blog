@@ -4,6 +4,9 @@
   - https://chriscoyier.net/2023/10/03/being-picky-about-a-css-reset-for-fun-pleasure/
 */
 
+/* Repeated in each stylesheet that uses layers, since any of them can load first. */
+@layer reset, page-layout, default-style, layout;
+
 @layer reset {
   *,
   *::before,

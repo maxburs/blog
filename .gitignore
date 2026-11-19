@@ -12,9 +12,8 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+# build output
+/dist/
 
 # misc
 .DS_Store

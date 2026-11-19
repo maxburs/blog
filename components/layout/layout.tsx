@@ -1,39 +1,32 @@
-import React from 'react';
-import Link from 'next/link';
+import { Link } from '@tanstack/solid-router';
+import type { JSX } from '@solidjs/web';
 
 import { ThemePicker } from './theme-picker';
 import styles from './layout.module.css';
 import * as constants from '../../constants';
 
 export interface LayoutProps {
-  header?: React.ReactNode;
-  mainProps?: React.HTMLProps<HTMLElement>;
-  children: React.ReactNode;
-  className?: string;
+  header?: JSX.Element;
+  mainClass?: string;
+  children: JSX.Element;
+  class?: string;
 }
 
-export const Layout: React.FC<LayoutProps> = ({
-  children,
-  mainProps,
-  header,
-  className,
-}) => {
+export function Layout(props: LayoutProps) {
   return (
-    <div
-      className={className ? `${styles.layout} ${className}` : styles.layout}
-    >
-      {header ?? (
+    <div class={[styles.layout, props.class]}>
+      {props.header ?? (
         <header>
-          <Link className={styles.headerLink} href="/">
+          <Link class={styles.headerLink} to="/">
             {constants.title}
           </Link>
         </header>
       )}
 
-      <main {...mainProps}>{children}</main>
-      <footer className={styles.footer}>
+      <main class={props.mainClass}>{props.children}</main>
+      <footer class={styles.footer}>
         <span>
-          © {new Date().toLocaleDateString(undefined, { year: 'numeric' })} •{' '}
+          © {new Date().getFullYear()} •{' '}
           <a href="https://www.github.com/maxburs">GitHub</a> •{' '}
           <a rel="alternate" type="application/rss+xml" href="/rss.xml">
             RSS
@@ -43,4 +36,4 @@ export const Layout: React.FC<LayoutProps> = ({
       </footer>
     </div>
   );
-};
+}

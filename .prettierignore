@@ -1,7 +1,6 @@
-# next.js
-/.next
+/dist
 /public
-/out
+/app/routeTree.gen.ts
 
 /coverage
 
