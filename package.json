@@ -35,9 +35,9 @@
     "**/*": "prettier --write --ignore-unknown "
   },
   "dependencies": {
+    "@solidjs/meta": "^2.0.0",
+    "@solidjs/router": "^2.0.0",
     "@solidjs/web": "2.0.2",
-    "@tanstack/solid-router": "2.0.0-rc.10",
-    "@tanstack/solid-start": "2.0.0-rc.10",
     "gray-matter": "4.0.2",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.25.0",

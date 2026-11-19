@@ -1,18 +1,14 @@
-import { Link, createFileRoute } from '@tanstack/solid-router';
 import { For } from 'solid-js';
 
 import { DateFormatter } from '../../components/date-formatter';
 import { Layout } from '../../components/layout/layout';
 import * as constants from '../../constants';
 import { posts } from '../posts';
+import { paths } from '../router';
 
 import styles from '../index.module.css';
 
-export const Route = createFileRoute('/')({
-  component: Index,
-});
-
-function Index() {
+export function Index() {
   return (
     <Layout
       class={styles.layout}
@@ -34,15 +30,11 @@ function Index() {
     >
       <For each={posts}>
         {(post) => (
-          <Link
-            to="/posts/$slug"
-            params={{ slug: post.slug }}
-            class={styles.post}
-          >
+          <a href={paths.posts(post.slug)} class={styles.post} link>
             <h2>{post.title}</h2>
             <DateFormatter dateString={post.date} />
             <p>{post.excerpt}</p>
-          </Link>
+          </a>
         )}
       </For>
     </Layout>

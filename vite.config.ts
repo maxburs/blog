@@ -1,32 +1,23 @@
 import { defineConfig } from 'vite';
-import { tanstackStart } from '@tanstack/solid-start/plugin/vite';
 import solid from '@solidjs/vite-plugin';
 
 import { getPostSlugs } from './lib/api.ts';
 import { postsPlugin } from './lib/vite-plugin-posts.ts';
+import { prerenderPlugin } from './lib/vite-plugin-prerender.ts';
 
 export default defineConfig({
   plugins: [
     postsPlugin(),
-    tanstackStart({
-      srcDirectory: 'app',
-      prerender: {
-        enabled: true,
-        // Every page is listed in `pages`.
-        crawlLinks: false,
-        // Write `posts/foo.html` rather than `posts/foo/index.html`, matching
-        // the URLs the Next.js export produced.
-        autoSubfolderIndex: false,
-      },
-      pages: [
-        { path: '/' },
-        // Becomes `404.html`; see app/server.ts.
-        { path: '/404' },
-        ...getPostSlugs().map((slug) => ({ path: `/posts/${slug}` })),
-      ],
+    solid({
+      ssr: true,
+      start: { app: 'app/app.tsx', document: 'app/document.tsx' },
     }),
-    // TanStack Start's setup docs require this after `tanstackStart()`.
-    solid({ ssr: true }),
+    prerenderPlugin(() => [
+      { path: '/' },
+      // Netlify serves `404.html` for unknown paths.
+      { path: '/404', status: 404 },
+      ...getPostSlugs().map((slug) => ({ path: `/posts/${slug}` })),
+    ]),
   ],
   build: {
     rolldownOptions: {

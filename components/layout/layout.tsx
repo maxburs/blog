@@ -1,4 +1,3 @@
-import { Link } from '@tanstack/solid-router';
 import type { JSX } from '@solidjs/web';
 
 import { ThemePicker } from './theme-picker';
@@ -17,9 +16,9 @@ export function Layout(props: LayoutProps) {
     <div class={[styles.layout, props.class]}>
       {props.header ?? (
         <header>
-          <Link class={styles.headerLink} to="/">
+          <a class={styles.headerLink} href="/" link>
             {constants.title}
-          </Link>
+          </a>
         </header>
       )}
 
