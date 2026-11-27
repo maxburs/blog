@@ -23,6 +23,7 @@
     "preview": "vite preview",
     "format": "prettier --write --ignore-unknown .",
     "typecheck": "tsc",
+    "lint": "oxlint -c oxlint.config.mjs",
     "generateFeeds": "node --import @swc-node/register/esm-register ./scripts/generate-feeds.ts",
     "prepare": "husky"
   },
@@ -55,10 +56,12 @@
     "@swc/types": "^0.1.12",
     "@types/jest": "^25.2.2",
     "@types/node": "22",
+    "eslint-plugin-solid": "~0.20.1",
     "feed": "^4.2.1",
     "gatsby-remark-prismjs": "7",
     "husky": "9",
     "lint-staged": "15",
+    "oxlint": "~1.95.0",
     "prerender-crawler": "^0.3.0",
     "prettier": "3",
     "vite": "^8.3.8"

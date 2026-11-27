@@ -16,6 +16,7 @@ yarn dev        # dev server
 yarn build      # generate the RSS/Atom feeds, then prerender every page to dist/client
 yarn preview    # serve the production build
 yarn typecheck
+yarn lint       # eslint-plugin-solid's Solid 2 rules, run by oxlint
 ```
 
 ## Posts

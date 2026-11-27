@@ -35,6 +35,7 @@ export default function Document(props: { children: JSX.Element }) {
         <link rel="icon" type="image/png" href="/favicon/favicon.ico" />
         {/* Runs before first paint, so the page doesn't flash the default
             theme before the saved one. */}
+        {/* oxlint-disable-next-line solid/no-innerhtml -- Static inline script, no untrusted input. */}
         <script innerHTML="document.documentElement.dataset.theme = localStorage.getItem('theme') || 'auto';" />
         <HydrationScript />
       </head>
