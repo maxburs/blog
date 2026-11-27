@@ -1,30 +1,40 @@
+import { prerendered } from '@solidjs/prerender';
+import { query } from '@solidjs/router';
+
+import { getAllPosts, getPostBySlug } from '../lib/api';
+import { markdownToHtml } from '../lib/markdownToHtml';
 import type { PostSummary } from '../types';
 
-// Compiled by lib/vite-plugin-posts.ts.
-const summaries = import.meta.glob<PostSummary>('../_posts/*.md', {
-  query: '?post-summary',
-  import: 'default',
-  eager: true,
-});
-const htmlLoaders = import.meta.glob<string>('../_posts/*.md', {
-  query: '?post-html',
-  import: 'default',
-});
+// `prerendered()` server functions run during the build. Each call a page
+// makes is saved under `dist/client/_static/`, and client-side navigation
+// fetches that file instead of calling a server. In dev they run on the dev
+// server.
 
 export interface Post extends PostSummary {
   html: string;
 }
 
 /** Newest first. */
-export const posts: PostSummary[] = Object.values(summaries).sort((a, b) =>
-  a.date > b.date ? -1 : 1,
+export const getPosts = query(
+  prerendered(async (): Promise<PostSummary[]> => {
+    'use server';
+    return getAllPosts().map((post) => {
+      const { content: _, ...summary } = post;
+      return summary;
+    });
+  }),
+  'posts',
 );
 
-export async function getPost(slug: string): Promise<Post | undefined> {
-  for (const [file, summary] of Object.entries(summaries)) {
-    if (summary.slug === slug) {
-      return { ...summary, html: await htmlLoaders[file]() };
+export const getPost = query(
+  prerendered(async (slug: string): Promise<Post | undefined> => {
+    'use server';
+    const post = getPostBySlug(slug);
+    if (post === undefined) {
+      return undefined;
     }
-  }
-  return undefined;
-}
+    const { content, ...summary } = post;
+    return { ...summary, html: await markdownToHtml(content) };
+  }),
+  'post',
+);

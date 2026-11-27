@@ -1,17 +1,26 @@
 import { statSync } from 'node:fs';
 import { defineConfig } from 'vite';
 import solid from '@solidjs/vite-plugin';
+import { serverFunctions } from '@solidjs/prerender/integration';
 import { prerender } from 'prerender-crawler/vite';
 
 import { fallbackUrl } from './constants.ts';
 import { getPostSlugs } from './lib/api.ts';
-import { postsPlugin } from './lib/vite-plugin-posts.ts';
+
+const postSlugs = getPostSlugs();
 
 export default defineConfig({
+  define: {
+    // For the router to match post URLs without loading any posts. Restart
+    // the dev server after adding or renaming a post.
+    'import.meta.env.POST_SLUGS': JSON.stringify(postSlugs),
+  },
   plugins: [
-    postsPlugin(),
     solid({
       ssr: true,
+      // Compiles `'use server'` functions, which by default it only looks for
+      // in `src/`.
+      serverFunctions: { filter: { include: 'app/**/*.{ts,tsx}' } },
       start: {
         app: 'app/app.tsx',
         document: 'app/document.tsx',
@@ -23,6 +32,11 @@ export default defineConfig({
     }),
     // Renders these pages, and every page they link to, into `dist/client`.
     prerender({
+      // Saves the results of server functions called while rendering. Its
+      // check for functions the browser could call but the build never saved
+      // doesn't run: it looks for the Vite plugin's list of functions in
+      // `dist/client`, but the plugin moves that list to `dist/server`.
+      integrations: [serverFunctions()],
       // Treat absolute links to the site as internal so they're crawled too
       // (requests still go to the built server bundle, not the live site).
       origin: fallbackUrl,
@@ -34,7 +48,7 @@ export default defineConfig({
         // explicit filename, the crawler would percent-encode slugs with
         // spaces or non-ASCII characters, and drop `.html` from slugs with a
         // dot.
-        ...getPostSlugs().map((slug) => ({
+        ...postSlugs.map((slug) => ({
           // Encoded like the router's links, so both name one page.
           path: `/posts/${encodeURIComponent(slug)}`,
           filename: `posts/${slug}.html`,
@@ -49,15 +63,6 @@ export default defineConfig({
       autoSubfolderIndex: false,
     }),
   ],
-  build: {
-    rolldownOptions: {
-      output: {
-        // Post chunks are named after files like `2021-01-02 slug.md`; keep
-        // the space out of asset URLs.
-        sanitizeFileName: (name) => name.replace(/[^\w.-]/g, '-'),
-      },
-    },
-  },
 });
 
 /** Whether a URL path, such as `/rss.xml`, names a file in `public/`. */

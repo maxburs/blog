@@ -623,6 +623,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@solidjs/prerender@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@solidjs/prerender@npm:0.3.0"
+  peerDependencies:
+    "@solidjs/web": ">=2.0.0-rc.16"
+    prerender-crawler: ">=0.1.0"
+  checksum: 10c0/e0cea20aed1226199d97d8ec029e594e0adc934cede6c09b03e2a70aef590f4998bfa4b1d85983c35582f8769d2c3c1f280216f9431c8bc00c99725034a68416
+  languageName: node
+  linkType: hard
+
 "@solidjs/router@npm:^2.0.0":
   version: 2.0.0
   resolution: "@solidjs/router@npm:2.0.0"
@@ -1903,6 +1913,7 @@ __metadata:
   resolution: "maxwell-bursons-blog@workspace:."
   dependencies:
     "@solidjs/meta": "npm:^2.0.0"
+    "@solidjs/prerender": "npm:^0.3.0"
     "@solidjs/router": "npm:^2.0.0"
     "@solidjs/vite-plugin": "npm:^3.0.1"
     "@solidjs/web": "npm:2.0.2"

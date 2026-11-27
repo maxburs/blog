@@ -27,9 +27,11 @@ Posts are Markdown files in `_posts/`, named `yyyy-mm-dd slug.md`. Each is publi
 node --import @swc-node/register/esm-register scripts/new-post.ts my-new-post
 ```
 
+Restart `yarn dev` after adding or renaming a post, so its URL is recognized.
+
 ## How the build works
 
-- [lib/vite-plugin-posts.ts](lib/vite-plugin-posts.ts) compiles posts into JS modules that pages import, so client-side navigation works without a server.
+- [app/posts.ts](app/posts.ts) loads posts with server functions wrapped in `prerendered()` from [@solidjs/prerender](https://github.com/solidjs/prerender-crawler/tree/main/packages/solid). They run while the build renders pages, and their results are saved under `dist/client/_static/`, which client-side navigation fetches instead of calling a server.
 - Solid's Vite plugin builds a client bundle and a server bundle. [prerender-crawler](https://github.com/solidjs/prerender-crawler/tree/main/packages/crawler) then uses the server bundle to render the home page, the 404 page, every post, and any other page they link to into `dist/client`, which Netlify publishes as static files. The server bundle isn't deployed.
 - The build fails if a page doesn't render, or if an `<a>` link points to a missing page or file on the site. Images and other asset URLs aren't checked.
 

@@ -35,8 +35,20 @@ export function getPostByFileName(fileName: string): undefined | IPost {
     throw e;
   }
   const { data, content } = matter(fileContents);
+  // YAML parses an unquoted date, such as `date: 2026-11-27`, as a `Date`.
+  const date =
+    data.date instanceof Date
+      ? data.date.toISOString().slice(0, 10)
+      : data.date;
 
-  return { ...data, content, slug: fileNameToSlug(fileName) } as IPost;
+  return { ...data, date, content, slug: fileNameToSlug(fileName) } as IPost;
+}
+
+export function getPostBySlug(slug: string): undefined | IPost {
+  const fileName = postsDir().find(
+    (fileName) => fileNameToSlug(fileName) === slug,
+  );
+  return fileName === undefined ? undefined : getPostByFileName(fileName);
 }
 
 export function getPostSlugs() {

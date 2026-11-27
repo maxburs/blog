@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@solidjs/meta": "^2.0.0",
+    "@solidjs/prerender": "^0.3.0",
     "@solidjs/router": "^2.0.0",
     "@solidjs/web": "2.0.2",
     "gray-matter": "4.0.2",

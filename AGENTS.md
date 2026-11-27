@@ -5,7 +5,7 @@ Max Burson's blog: Markdown posts in `_posts/`, rendered with Solid 2 and Solid 
 ## Project
 
 - Commands: `yarn dev`, `yarn build`, `yarn typecheck`, `yarn lint`, `yarn format`. Run `yarn typecheck`, `yarn lint` and `yarn format` after editing code.
-- Netlify serves `dist/client` as static files, with no server in production. Load posts from `app/posts.ts`. Never use server functions or Node `fs` in `app/` or `components/`; that code also runs in the browser.
+- Netlify serves `dist/client` as static files, with no server in production. Load posts with the server functions in `app/posts.ts`, and wrap any new server function in `prerendered()` so the build saves its results. Use Node APIs such as `fs` only inside `'use server'` functions; other code in `app/` and `components/` also runs in the browser.
 - Start every stylesheet that uses `@layer` with `@layer reset, page-layout, default-style, layout;`, so layer priority doesn't depend on which CSS file loads first.
 
 <!-- Verbatim from https://docs.solidjs.com/guides/ai-tools#rules-to-paste-into-an-instructions-file up to "Tooling:", which is adapted for this repo. -->
