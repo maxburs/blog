@@ -1705,6 +1705,7 @@ __metadata:
     husky: "npm:9"
     lint-staged: "npm:15"
     normalize.css: "npm:^8.0.1"
+    prerender-crawler: "npm:^0.3.0"
     prettier: "npm:3"
     prismjs: "npm:^1.25.0"
     remark: "npm:15"
@@ -2452,6 +2453,20 @@ __metadata:
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.2"
   checksum: 10c0/8711c5ad32a798813ae52dd51024881915ecc6171030f9cc1d3766d1969da20ade4cf71a645d7e54668cb45cb9622eac938dc1ce91fe1f9a0fa5f0bc8cbaa05a
+  languageName: node
+  linkType: hard
+
+"prerender-crawler@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "prerender-crawler@npm:0.3.0"
+  peerDependencies:
+    vite: ^7.0.0 || ^8.0.0
+  peerDependenciesMeta:
+    vite:
+      optional: true
+  bin:
+    prerender-crawler: dist/cli.js
+  checksum: 10c0/13754f4279abcffae7ad9d14b98d792972083882df9534a2fd5e119d08a83b2bd3ce49007d38ee1bf375545990a4757bb373321136bb09f903a57b6798d93519
   languageName: node
   linkType: hard
 

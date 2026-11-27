@@ -59,6 +59,7 @@
     "gatsby-remark-prismjs": "7",
     "husky": "9",
     "lint-staged": "15",
+    "prerender-crawler": "^0.3.0",
     "prettier": "3",
     "vite": "^8.3.8"
   },
