@@ -1,14 +1,16 @@
-import { For } from 'solid-js';
+import { createMemo, For } from 'solid-js';
 
 import { DateFormatter } from '../../components/date-formatter';
 import { Layout } from '../../components/layout/layout';
 import * as constants from '../../constants';
-import { posts } from '../posts';
+import { getPosts } from '../posts';
 import { paths } from '../router';
 
 import styles from '../index.module.css';
 
 export function Index() {
+  const posts = createMemo(() => getPosts());
+
   return (
     <Layout
       class={styles.layout}
@@ -28,7 +30,7 @@ export function Index() {
         </header>
       }
     >
-      <For each={posts}>
+      <For each={posts()}>
         {(post) => (
           <a href={paths.posts(post.slug)} class={styles.post} link>
             <h2>{post.title}</h2>

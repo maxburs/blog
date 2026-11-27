@@ -2,7 +2,7 @@ import { createRouter, defineRoute, intentPreload } from '@solidjs/router';
 import { lazy } from 'solid-js';
 
 import { NotFound } from './not-found';
-import { getPost, posts } from './posts';
+import { getPost } from './posts';
 import { Index } from './routes/index';
 
 export const Router = createRouter({
@@ -10,9 +10,10 @@ export const Router = createRouter({
     { path: '/', component: Index },
     defineRoute({
       path: '/posts/:slug',
-      // Unknown slugs fall through to the 404 route on both server and client.
+      // Unknown slugs fall through to the 404 route on both server and client,
+      // so `404.html` hydrates when Netlify serves it for one.
       matchFilters: {
-        slug: (slug: string) => posts.some((post) => post.slug === slug),
+        slug: (slug: string) => import.meta.env.POST_SLUGS.includes(slug),
       },
       component: lazy(() => import('./routes/post'), { export: 'PostPage' }),
       preload: ({ params, intent }) => {
