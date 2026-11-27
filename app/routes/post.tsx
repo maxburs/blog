@@ -18,10 +18,13 @@ import '../code-light.css';
 // since the router imports this file.
 export function PostPage(props: RouteProps<'/posts/:slug'>) {
   const post = createMemo(async () => {
-    const post = await getPost(props.params.slug);
+    // Solid doesn't track reads after the first `await`, so read the slug
+    // once here.
+    const slug = props.params.slug;
+    const post = await getPost(slug);
     // Unreachable: the route's match filter rejects unknown slugs.
     if (post === undefined) {
-      throw new Error(`Post not found: ${props.params.slug}`);
+      throw new Error(`Post not found: ${slug}`);
     }
     return post;
   });
