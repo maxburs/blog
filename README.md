@@ -38,3 +38,9 @@ node --import @swc-node/register/esm-register scripts/new-post.ts my-new-post
 ## Coding agents
 
 [AGENTS.md](AGENTS.md) has instructions for coding agents, including Solid's recommended rules for Solid 2.
+
+`.agents/skills/` links to the agent skills that ship with Solid in `node_modules`, so they match the installed version. Agents that read `.agents/skills/`, including Copilot, Codex and Cursor, pick them up after `yarn install`. To add a skill from another package, link its folder:
+
+```sh
+ln -s ../../node_modules/<package>/skills/<name> .agents/skills/<name>
+```

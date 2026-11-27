@@ -48,6 +48,8 @@ Tooling:
 
 - Skills: `node_modules/solid-js/skills/solid-2.0/SKILL.md` (primer),
   `node_modules/solid-js/skills/reactivity-diagnostics/SKILL.md` (every warning code and its fix).
+  These and the `solid-2.0-cheatsheet` skill are linked from `.agents/skills/`; run `yarn install` if
+  the links are broken.
 - TanStack ships skills in `node_modules/@tanstack/*/skills/`, but some examples import the React packages
   or use Solid 1 APIs such as `Suspense`. Adapt them to `@tanstack/solid-*` and the rules above.
 - A console warning with a bracketed code, such as `[REACTIVE_WRITE_IN_OWNED_SCOPE]`, is a defect.
