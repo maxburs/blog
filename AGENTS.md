@@ -4,7 +4,7 @@ Max Burson's blog: Markdown posts in `_posts/`, rendered with Solid 2 and TanSta
 
 ## Project
 
-- Commands: `yarn dev`, `yarn build`, `yarn typecheck`, `yarn format`. Run `yarn typecheck` and `yarn format` after editing code.
+- Commands: `yarn dev`, `yarn build`, `yarn typecheck`, `yarn lint`, `yarn format`. Run `yarn typecheck`, `yarn lint` and `yarn format` after editing code.
 - Netlify serves `dist/client` as static files, with no server in production. Load posts from `app/posts.ts`. Never use server functions (`createServerFn`) or Node `fs` in `app/` or `components/`; that code also runs in the browser.
 - Import TanStack APIs from `@tanstack/solid-start` and `@tanstack/solid-router`, not the React packages.
 - Don't edit `app/routeTree.gen.ts`; TanStack's router plugin regenerates it from `app/routes/` during `yarn dev` and `yarn build`.
@@ -52,4 +52,5 @@ Tooling:
   or use Solid 1 APIs such as `Suspense`. Adapt them to `@tanstack/solid-*` and the rules above.
 - A console warning with a bracketed code, such as `[REACTIVE_WRITE_IN_OWNED_SCOPE]`, is a defect.
   Look it up in the repair guide; do not suppress it.
+- `yarn lint` runs `eslint-plugin-solid/configs/v2` through oxlint.
 - Docs: https://docs.solidjs.com/llms.txt; append `.md` to any page URL for its Markdown.

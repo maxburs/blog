@@ -58,6 +58,7 @@ function PostPage() {
           <h1 class={styles.title}>{post().title}</h1>
           <DateFormatter class={styles.date} dateString={post().date} />
         </header>
+        {/* oxlint-disable-next-line solid/no-innerhtml -- Compiled at build time from this repo's Markdown. */}
         <div class={styles.markdown} innerHTML={post().html} />
       </article>
       <Link class={styles.allPostsLink} to="/">

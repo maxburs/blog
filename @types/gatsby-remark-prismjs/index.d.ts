@@ -17,6 +17,6 @@ declare module 'gatsby-remark-prismjs' {
     escapeEntities: Record<string, string>;
   }
 
-  declare function transform(ast: { markdownAST: Node }, options?: Options);
+  function transform(ast: { markdownAST: Node }, options?: Options);
   export default transform;
 }

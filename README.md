@@ -16,6 +16,7 @@ yarn dev        # dev server
 yarn build      # generate the RSS/Atom feeds, then prerender every page to dist/client
 yarn preview    # serve the production build
 yarn typecheck
+yarn lint       # eslint-plugin-solid's Solid 2 rules, run by oxlint
 ```
 
 `@tanstack/solid-start` and `@tanstack/solid-router` are pinned to `2.0.0-rc.10`. Their Solid 2 support is still a release candidate, and `2.0.0-rc.11` doesn't build: it imports `@tanstack/start-server-core/request-scope`, which no published version of that package exports.
