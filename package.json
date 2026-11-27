@@ -33,7 +33,7 @@
     }
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown "
+    "**/*": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern"
   },
   "dependencies": {
     "@solidjs/meta": "^2.0.0",

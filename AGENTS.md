@@ -46,6 +46,8 @@ Tooling:
 
 - Skills: `node_modules/solid-js/skills/solid-2.0/SKILL.md` (primer),
   `node_modules/solid-js/skills/reactivity-diagnostics/SKILL.md` (every warning code and its fix).
+  These and the `solid-2.0-cheatsheet` skill are linked from `.agents/skills/`; run `yarn install` if
+  the links are broken.
 - A console warning with a bracketed code, such as `[REACTIVE_WRITE_IN_OWNED_SCOPE]`, is a defect.
   Look it up in the repair guide; do not suppress it.
 - `yarn lint` runs `eslint-plugin-solid/configs/v2` through oxlint.
