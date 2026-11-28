@@ -22,5 +22,5 @@
     "typeRoots": ["./node_modules/@types", "./@types"]
   },
   "exclude": ["node_modules", "dist"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.mts"]
 }

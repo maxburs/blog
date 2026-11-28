@@ -8,7 +8,7 @@
     "url": "https://github.com/maxburs/blog/issues"
   },
   "engines": {
-    "node": ">=22.12"
+    "node": ">=22.18"
   },
   "homepage": "https://maxburson.com",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "preview": "vite preview",
     "format": "prettier --write --ignore-unknown .",
     "typecheck": "tsc",
-    "lint": "oxlint -c oxlint.config.mjs",
+    "lint": "oxlint",
     "generateFeeds": "node --import @swc-node/register/esm-register ./scripts/generate-feeds.ts",
     "prepare": "husky"
   },

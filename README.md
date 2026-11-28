@@ -8,7 +8,7 @@ Originally forked off the [next.js typescript blog starter](https://github.com/v
 
 ## Development
 
-Needs Node 22.12 or newer.
+Needs Node 22.18 or newer.
 
 ```sh
 yarn install
