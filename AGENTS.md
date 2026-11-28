@@ -1,0 +1,54 @@
+# Agent instructions
+
+Max Burson's blog: Markdown posts in `_posts/`, rendered with Solid 2 and Solid Router, and prerendered to static HTML. [README.md](README.md) explains the build.
+
+## Project
+
+- Commands: `yarn dev`, `yarn build`, `yarn typecheck`, `yarn lint`, `yarn format`. Run `yarn typecheck`, `yarn lint` and `yarn format` after editing code.
+- Netlify serves `dist/client` as static files, with no server in production. Load posts from `app/posts.ts`. Never use server functions or Node `fs` in `app/` or `components/`; that code also runs in the browser.
+- Start every stylesheet that uses `@layer` with `@layer reset, page-layout, default-style, layout;`, so layer priority doesn't depend on which CSS file loads first.
+
+<!-- Verbatim from https://docs.solidjs.com/guides/ai-tools#rules-to-paste-into-an-instructions-file up to "Tooling:", which is adapted for this repo. -->
+
+## Solid 2.0
+
+This project uses Solid 2.0 (`solid-js` 2.x with `@solidjs/web`). Components run once;
+there is no re-render. Read `node_modules/solid-js/CHEATSHEET.md` before writing Solid code,
+especially its last section, "What changed from 1.x".
+
+Rules that matter most:
+
+- Props are read, never destructured: `props.name` inside JSX, a memo, or an effect.
+  `function Comp({ name })` loses reactivity. Pass values, not accessors: `<Child count={count()} />`.
+- `createEffect(compute, apply)` takes two functions. The first reads reactive values and
+  returns a result; the second receives it and performs side effects. One argument is an error.
+- Stores are written through the draft: `setStore(s => { s.user.name = "Ada" })`.
+  There are no path setters and no `produce`.
+- Read reactive values inside JSX, a memo, or an effect, never at the top of a component body.
+- Do not write a signal or store from a memo, an effect's compute function, or a component body.
+  Write from event handlers, `onSettled`, or actions.
+
+Names that no longer exist, and what to use:
+
+- `solid-js/web` -> `@solidjs/web`; `solid-js/store` -> `solid-js`
+- `Suspense` -> `Loading`; `SuspenseList` -> `Reveal`; `ErrorBoundary` -> `Errored`
+- `mergeProps` -> `merge`; `splitProps` -> `omit`; `unwrap` -> `snapshot`; `onMount` -> `onSettled`
+- `createResource` -> an async `createMemo` or `createStore(fn)` read under `<Loading>`
+- `createSelector` -> `createProjection`; `createComputed` -> `createMemo` or a two-function `createEffect`
+- `batch` -> writes batch on a microtask (`flush()` applies them now); `on()` -> the compute half of `createEffect`
+- `startTransition` / `useTransition` -> built in; `isPending()` reports an in-flight change
+- `Index` -> `<For keyed={false}>`; `indexArray` -> `mapArray`; `createMutable` -> `createStore` with draft setters
+- `onError` / `catchError` -> `<Errored>` or the `error` option of `createEffect`
+- `classList` -> `class={{ active: isActive() }}`; `use:` directives -> `ref={factory(args)}`
+- `Context.Provider` -> `<Context value={...}>`; `equalFn` -> `isEqual`; `getListener` -> `getObserver`
+
+Tooling:
+
+- Skills: `node_modules/solid-js/skills/solid-2.0/SKILL.md` (primer),
+  `node_modules/solid-js/skills/reactivity-diagnostics/SKILL.md` (every warning code and its fix).
+  These and the `solid-2.0-cheatsheet` skill are linked from `.agents/skills/`; run `yarn install` if
+  the links are broken.
+- A console warning with a bracketed code, such as `[REACTIVE_WRITE_IN_OWNED_SCOPE]`, is a defect.
+  Look it up in the repair guide; do not suppress it.
+- `yarn lint` runs `eslint-plugin-solid/configs/v2` through oxlint.
+- Docs: https://docs.solidjs.com/llms.txt; append `.md` to any page URL for its Markdown.

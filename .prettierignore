@@ -1,7 +1,5 @@
-# next.js
-/.next
+/dist
 /public
-/out
 
 /coverage
 

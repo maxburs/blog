@@ -4,7 +4,7 @@ import path from 'node:path';
 function template({ date }: { date: string }) {
   return `---
 title: 
-date: ${date}
+date: '${date}'
 excerpt: 
 tags: 
 ---

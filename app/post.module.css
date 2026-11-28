@@ -1,3 +1,6 @@
+/* Declared in every layered stylesheet so layer priority doesn't depend on CSS load order. */
+@layer reset, page-layout, default-style, layout;
+
 .layout {
   --content-width: 768px;
   --main-width: 576px;

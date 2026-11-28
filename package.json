@@ -8,7 +8,7 @@
     "url": "https://github.com/maxburs/blog/issues"
   },
   "engines": {
-    "node": "20"
+    "node": ">=22.18"
   },
   "homepage": "https://maxburson.com",
   "license": "MIT",
@@ -18,11 +18,12 @@
     "url": "git+https://github.com/maxburson/blog.git"
   },
   "scripts": {
-    "dev": "next",
-    "build": "yarn generateFeeds && next build",
+    "dev": "vite dev",
+    "build": "yarn generateFeeds && vite build",
+    "preview": "vite preview",
     "format": "prettier --write --ignore-unknown .",
-    "start": "next start",
     "typecheck": "tsc",
+    "lint": "oxlint",
     "generateFeeds": "node --import @swc-node/register/esm-register ./scripts/generate-feeds.ts",
     "prepare": "husky"
   },
@@ -32,35 +33,38 @@
     }
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown "
+    "**/*": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern"
   },
   "dependencies": {
-    "date-fns": "2.10.0",
+    "@solidjs/meta": "^2.0.0",
+    "@solidjs/router": "^2.0.0",
+    "@solidjs/web": "2.0.2",
     "gray-matter": "4.0.2",
-    "next": "14",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.25.0",
-    "react": "18",
-    "react-dom": "18",
     "remark": "15",
     "remark-gfm": "^4.0.0",
     "remark-html": "16",
     "sass": "^1.79.4",
+    "solid-js": "2.0.2",
     "typescript": "latest"
   },
   "devDependencies": {
+    "@solidjs/vite-plugin": "^3.0.1",
     "@swc-node/register": "^1.10.9",
     "@swc/core": "^1.7.26",
     "@swc/types": "^0.1.12",
     "@types/jest": "^25.2.2",
     "@types/node": "22",
-    "@types/react": "18",
-    "@types/react-dom": "18",
+    "eslint-plugin-solid": "~0.20.1",
     "feed": "^4.2.1",
     "gatsby-remark-prismjs": "7",
     "husky": "9",
     "lint-staged": "15",
-    "prettier": "3"
+    "oxlint": "~1.95.0",
+    "prerender-crawler": "^0.3.0",
+    "prettier": "3",
+    "vite": "^8.3.8"
   },
   "packageManager": "yarn@4.4.0"
 }

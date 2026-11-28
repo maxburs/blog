@@ -1,0 +1,85 @@
+/*
+  Fallback metrics match what next/font generated, so text doesn't shift
+  when the web fonts swap in.
+*/
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../fonts/merriweather/merriweather-latin-400.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../fonts/merriweather/merriweather-latin-400italic.woff2')
+    format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../fonts/merriweather/merriweather-latin-700.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('../fonts/merriweather/merriweather-latin-700italic.woff2')
+    format('woff2');
+  font-display: swap;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Merriweather Fallback';
+  src: local('Arial');
+  ascent-override: 88.24%;
+  descent-override: 24.48%;
+  line-gap-override: 0%;
+  size-adjust: 111.51%;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/montserrat-latin-700.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat Fallback';
+  src: local('Arial');
+  ascent-override: 80.59%;
+  descent-override: 20.9%;
+  line-gap-override: 0%;
+  size-adjust: 120.11%;
+}
+
+@font-face {
+  font-family: 'SF Mono Regular';
+  src: url('../fonts/SFMono-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Mono Regular Fallback';
+  src: local('Arial');
+  ascent-override: 70.28%;
+  descent-override: 17.81%;
+  line-gap-override: 0%;
+  size-adjust: 135.47%;
+}
+
+:root {
+  --merriweather: 'Merriweather', 'Merriweather Fallback';
+  --montserrat: 'Montserrat', 'Montserrat Fallback';
+  --sf-mono-regular: 'SF Mono Regular', 'SF Mono Regular Fallback';
+}

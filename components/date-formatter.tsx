@@ -1,19 +1,20 @@
-import parseISO from 'date-fns/parseISO';
-
-export interface Props {
+export interface DateFormatterProps {
+  /** `yyyy-mm-dd` */
   dateString: string;
-  className?: string;
+  class?: string;
 }
 
-export const DateFormatter: React.FC<Props> = ({ dateString, className }) => {
-  const date = parseISO(dateString);
+export function DateFormatter(props: DateFormatterProps) {
   return (
-    <time className={className} dateTime={dateString}>
-      {date.toLocaleDateString(undefined, {
+    <time class={props.class} datetime={props.dateString}>
+      {/* Fixed locale and time zone so the prerendered date matches what
+          client-side navigation renders. */}
+      {new Date(props.dateString).toLocaleDateString('en-US', {
+        timeZone: 'UTC',
         month: 'long',
         year: 'numeric',
         day: 'numeric',
       })}
     </time>
   );
-};
+}
